@@ -1,0 +1,168 @@
+{{header}}
+<style>
+	.register-div{
+		height:780px;
+		background-color:#FFF;
+	}
+	.top-title{
+		margin:0 auto;
+		width:1100px;
+		height:40px;
+		line-height:40px;
+	}
+	.main-div{
+		margin:0 auto;
+
+		height:740px;
+		width:1100px;
+	}
+	.main-div .main-left{
+		float:left;
+		width:200px;
+		height:500px;
+		border:solid 1px #D7D7D7;
+	}	
+	.main-div .main-right{
+		float:left;
+		margin-left:20px;
+		width:680px;
+		height:720px;
+		border:solid 1px #D7D7D7;
+	}
+	.main-div .main-left .main-left-title{
+		background-color: #F5F5F5;
+		height: 40px;
+	}
+	.main-left-tel h5 ,.main-left-title h5 {		
+		padding: 12.5px 20px;
+	}
+	.main-left-content dt{
+		line-height: 40px;
+		font-weight: 600;
+		color: #555;
+		height: 40px;
+		padding: 10px 0 9px 25px;
+		border-bottom: solid 1px #F5F5F5;
+	}
+	.main-left-tel{
+		height:40px;
+		background-color: #F5F5F5;
+	}
+	.main-left-phone dl dd {
+		height:40px;
+		margin:10px 0 10px 25px;
+		list-style:none outside none;
+	}
+	.joinin-step ul li.current {
+	    background-position: -120px -130px;
+	}
+	.joinin-step ul li.step1.current {
+	    background-position: -172px -130px;
+	}
+	.joinin-step ul li {
+		list-style:none;
+		float:left;
+		margin:20px auto;
+		width:120px;
+		font-size: 12px;
+
+		background: url(./view/image/bgimg.png) no-repeat 0 -130px;
+		vertical-align: top;
+
+		letter-spacing: normal;
+
+		word-spacing: normal;
+
+		display: inline-block;
+
+		height: 16px;
+
+		position: relative;
+
+		z-index: 1;
+	}
+	.joinin-step ul{
+		width:600px;
+		height:80px;
+		margin: 20px 160px;;
+	}
+	.joinin-step .step1 {
+		background-position: -172px -130px;
+		width: 68px;
+	}
+	.joinin-step ul li.step4 {
+	    width: 68px;
+	}
+	.joinin-step ul li span{
+		color: #999;
+		text-align: center;
+		width: 120px;
+		height: 20px;
+		margin-left: -60px;
+		position: absolute;
+		z-index: 1;
+		bottom: -30px;
+		left: 50%;
+	}
+	
+	.step3-info{
+		text-align:center;
+		height:500px;
+		 
+	}
+	.step3-info h2{
+		color:green;
+	}
+	.step3-info h4{
+		margin-top:20px;
+	}
+	#footer{
+		height:100px;
+		line-height:100px;
+	}
+
+</style>
+<div class='register-div'>
+	<div class='top-title'>
+		<span><i class="fa fa-home"></i></span>
+		<span><a href="/">首页</a></span> >
+		<span>商家入驻申请</span>
+	</div>
+	<div class='main-div'>
+		<div class='main-left'>
+			<div class='main-left-title'><h5><b>商家入驻申请</b></h5></div>
+			<div class='main-left-content'>
+				<dl><dt>签署入驻协议</dt></dl>
+				<dl><dt>商家信息提交</dt></dl>
+				<dl><dt>店铺开通</dt></dl>
+			</div>
+			<div class='main-left-tel'><h5><b>平台联系方式</b></h5></div>
+			<div class = 'main-left-phone'>
+				<dl>
+				    <dd>手机：15321289121</dd>
+				    <dd>电话：84819999转2801/2803	</dd>
+				    <dd>邮箱：sshysbj@163.com</dd>
+				</dl>
+			</div>
+		</div>
+
+		<div class='main-right'>
+			<div class='joinin-step'>
+				  <ul>
+					<li class="step1 current"><span>签订入驻协议</span></li>
+					<li class="step2 current"><span>商家信息提交</span></li>
+					<li class="step4 current"><span>店铺开通</span></li>
+			          </ul>
+			</div>
+			<div>
+				<div class="joinin-concrete">
+					<div class='step3-info'>
+						 <h2>审核通过</h2>
+						 <h4>返回<a href="/adminUser">登录</a></h4>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{footer}}

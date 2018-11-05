@@ -1,0 +1,151 @@
+{{ header }}
+<div class="content_top">
+			<div class="content">
+				<div class="content_menu">
+					<div class="content_menu_pic">
+						<img src="images/hf_logo.png" class="content_menu_img"style="margin: 5px 0px;margin-right: 10px;">
+					</div>
+					<div class="content-form">
+		                <form action='index.php?route=product/search' method='post'>
+		                    <input type="text" name="soname" value="" placeholder="请输入内容">
+		                    <div class="content-form-a"><a href="">油画新品</a>   <a href="">618预热</a></div>
+		                    <input type='submit' value='搜索' style="width: 52px;height: 52px;color:white;-webkit-box-shadow: 0 0 0px 1000px red inset;" />
+		                </form>
+		                <div>
+		                	<ul class="header_left_s">
+				                <li><a href="">收藏品</a></li>
+				                <li><a href="">古字画</a></li>
+				                <li><a href="">古艺术品</a></li>
+				                <li><a href="">艺术品</a></li>
+				                <li><a href="">现在书画</a></li>
+				                <li><a href="">8折</a></li>
+				                <li><a href="">5折</a></li>
+				                <li><a href="">0元试用</a></li>
+				                <li><a href="">3折</a></li>
+				            </ul>
+	        			</div>
+		            </div>
+		            <div class="content_menu_right">
+						<img src="images/wxhf.jpg" class="content_menu_img"style="width: 100px;height:100px;margin: 10px 0px;float: right;">
+					</div>
+		            <div class="clear"></div>
+				</div>
+				<div class="content_nav">
+					<div class="content_all">
+						<div class="content_title">
+							<span class="all-goods">会员商场</span>
+						</div>
+						<div class="nav-cont">
+							<ul>
+								<li class="index"><a href="index.php">首页</a></li>
+	                            <li class="qc"><a href="#">商品</a></li>
+	                            <li class="qc"><a href="#">买品</a></li>
+	                            <li class="qc"><a href="index.php?route=account/hfservice">红福服务</a></li>
+	                            <li class="qc"><a href="index.php?route=ebaypro/paimai">拍卖</a></li>
+	                            <li class="qc"><a href="#">闪拍</a></li>
+	                            <li class="qc"><a href="http://hf.hongfuclub.com">红福办公系统</a></li>
+	                            <li class="qc last"><a href="#">红福佛福币</a></li>
+							</ul>
+						</div>
+{{ include(helper.template('_partial/breadcrumb')) }}
+						<!--侧边导航-->
+						<div class="banner_y center" style="float:left;">
+							<div class="nav">			
+								<ul>
+								{% for caid in caids %}
+									<li>
+										<a href="index.php?route=product/search&category_id={{ caid.category_id }}">{{ caid.name }}</a>
+										<i class="hf-ifont">></i>
+										<div class="pop">
+											<div class="left fl">
+											{% for s in caid.sub %}
+												<div>
+													<div class="xuangou_left fl">
+														<a href="index.php?route=product/search&category_id={{ s.category_id }}">
+															<span class="fl">{{ s.name }}</span>
+															<div class="clear"></div>
+														</a>
+													</div>
+													<div class="clear"></div>
+												</div>
+											{% endfor %}							
+											</div>
+											
+											<div class="clear"></div>
+										</div>
+									</li>
+								{% endfor %}
+
+								</ul>
+							</div>
+			</div>
+
+						<!---->
+						<div class="content_banner">
+							<div class="content_banner_01">
+								<img src="images/banner01.jpg" class="content_menu_img"style="width: 550px;height:334px;margin: 55px 0 0 15px;">
+							</div>
+						</div>
+						<div class="content_right">
+							<div class="hf-member J_Module" data-name="member" style="background-image: url(./images/timgwef.png);">
+								<div class="member">
+									<div class="member-bd">
+										<div class="avatar-wrapper">
+											<a href="javascript:;" class="J_MemberHome member-home" target="_self">
+												<img src="images/touxiang.png" style="width: 58px;height: 58px;">
+											</a>
+										</div>
+										<span class="member-nick-info">
+											Hi!
+											<strong class="J_MemberNick menber-nick">您好, &nbsp; {{ name }}</strong>
+										</span>
+										<p class="member-hfb">
+											<a href="" class="J_MemberPunch h">
+												红福币抵钱
+											</a>
+											<a href="" class="J_MemberClub h club">
+												会员俱乐部
+											</a>
+										</p>
+									</div>
+									<div class="member-ft">
+										<div class="member-logout J_MemberLogout">
+											<a href="index.php?route=account/login" class="btn-login ml1 tb-bg weight">登录</a>
+											<a href="index.php?route=account/register" class="ml2 tb-bg weight">注册</a>
+											<a href="#" class="ml3 tb-bg weight">开店</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="J_news" class="news J_news">
+								<div class="mod_tab news_tab J_news_tab">
+									<div class="mod_tab_head J_tab_head clearfix">
+										<a href="javascript:;" class="mod_tab_head_item news_first">促销</a>
+										<a href="javascript:;" class="mod_tab_head_item news_first mod_tab_head_item_on">公告</a>
+										<a href="javascript:;" class="mod_tab_head_item news_last mod_tab_head_item_on">咨询</a>
+										<div class="news_tab_active J_news_tab_active"></div>
+									</div>
+									<div class="mod_tab_content J_tab_content">
+										<div class="mod_tab_content_item mod_tab_content_item_on" style="display: block;">
+											<ul class="news_list">
+												<li class="news_item">
+													<a href="" target="_blank" class="news_link" clstag="h|keycount|head|news_d01">超值预售1元最高抵1111</a>
+												</li>
+												<li class="news_item">
+													<a href="" target="_blank" class="news_link" clstag="h|keycount|head|news_d01">智能生活</a>
+												</li>
+												<li class="news_item">
+													<a href="" target="_blank" class="news_link" clstag="h|keycount|head|news_d01">吃货大作战 199减120</a>
+												</li>
+												<li class="news_item">
+													<a href="" target="_blank" class="news_link" clstag="h|keycount|head|news_d01">萤石全无线监控无需电源线</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mod_tab_content_item" style="display: none;"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>

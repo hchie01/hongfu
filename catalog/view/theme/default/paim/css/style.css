@@ -1,0 +1,626 @@
+html,body,h1,h2,h3,h4,h5,h6,p,a{
+	    font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica', 'STHeitiSC-Light', 'Arial', 'sans-serif' !important;
+}
+
+*{
+	box-sizing:border-box;
+	transition:background 200ms;
+}
+
+body{
+	margin: 0;
+	font-size:14px;
+	line-height:1.7;
+	color:#444;
+}
+
+a{text-decoration:none;}/**/
+
+/*搜索*/
+.nav-search{
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.search-bar{
+	height: 80px;
+	padding: 20px 266px 0 266px;
+	margin: auto;
+}
+
+.search-bar form{
+	border: 2px solid #f03726;
+	max-width: 670px;
+}
+
+.search-bar input{
+	padding-left: 5px;
+	width: 80%;
+	height: 46px;
+	outline: none;
+	font-size: 14px;
+	border: none;
+}
+
+#ai-topsearch{
+	width: 20%;
+	height: 46px;
+	border: 0 none;
+	float: right;
+	background: #f03726 none repeat scroll 0% 0%;
+	color: #f5f5f2;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/*搜索结尾*/
+
+/*上架时间价格作品状态*/
+.filter select{
+	outline: none;
+	border: none;
+	width: 100px;
+	height: 30px;
+	font-size: 12px;
+	color: #666;
+	padding-right: 0;
+	border: 1px solid #eee;
+	border-radius: 4px;
+}
+/*上架时间结尾*/
+
+.banner{
+    padding: 20px 0 20px 0;
+    margin:0 auto; 
+    width: 1200px;
+}
+
+.container{
+ 
+	margin:90px auto;
+
+}
+
+.clearf:after,
+.clearf:before{
+	content:"";
+	display:block;
+	clear:both;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9{
+	display:block;
+	position:relative;
+	min-height:1px;
+	float:left;
+}
+
+.col-1{
+	width:10%;
+}
+
+.col-2{
+	width:25%;
+}
+
+.col-3{
+	width:30%;
+}
+
+.col-4{
+	width:40%;
+}
+
+.col-5{
+	width:50%;
+}
+
+.col-6{
+	width:60%;
+}
+
+.col-7{
+	width:70%;
+}
+
+.col-8{
+	width:80%;
+}
+
+.col-9{
+	width:90%;
+}
+
+.cat-promote .title{
+	padding: 20px 0 0 0;
+	color:#4c4c4c;
+}
+
+.cat-promote .leixing{
+	padding: 10px 0 0 0;
+	color:#4c4c4c;
+}
+
+.cat-promote .fl{
+	line-height: 40px;/*行距设为与div高度一致*/
+	font-size:24px;
+}
+
+
+.fl{
+	float:left;/*左边*/
+}
+.fr{
+	float:right;/*右边*/
+}
+
+.cat-promote .fr{
+	line-height: 40px;/*行距设为与div高度一致*/
+}
+
+.cat-promote .item{
+	padding:20px 10px 20px 10px;
+}
+
+.cat-promote .card{
+	height:400px;
+	background:#ccc;
+	border-radius:1px;
+	box-shadow:0 2px 2px rgba(0,0,0,.1);
+}
+
+.container .quanbu{
+	display:inline-block;
+	padding:0 10px;
+	color:#666;
+}
+
+.shangpin{
+	padding:0;
+	width:280px;
+	height: 280px;
+}
+
+.head_portrait{ 
+width:35px; 
+height:35px; 
+border-radius:50px; 
+} 
+
+.content .info{
+	padding:10px;
+	width:280px;
+	background:#fff;
+	color:#313131;
+	box-shadow:0 1px 2px rgba(0,0,0,.1);
+}
+
+.content .info > *{
+	margin-bottom:10xp;
+}
+
+.content .info .avatar{
+	width:35px;
+	height:35px;
+	background:#aaa;
+	border-radius:50px;
+	float:left;
+	margin-right:10px;
+}
+
+.content .info .nickname{
+	height: 35px;
+	font-size: 15px;
+	font-weight:bold;
+	float:left;
+	padding: 5px 0 5px 0;
+}
+
+.content .info .jiage{
+	width:90px;
+	height: 35px;
+	font-size: 16px;
+	font-weight:bold;
+	text-align: right;
+	float:right;
+	padding: 5px 0 5px 0;
+}
+
+.container_banner{
+	padding: 20px 0 20px 0;
+	display: block;
+    width: 1900px;
+    margin: 0 auto;
+}
+
+/*公司介绍开头*/
+.whyus{
+	display: block;
+	position: relative;
+	width: 100%;
+	max-width: 1180px;
+	margin: 0 auto;
+	margin-bottom: 100px;
+}
+
+.whyus .gspic {
+    margin-top: 60px;
+    display: table;
+    width: 100%;
+    height: 400px;
+    position: relative;
+}
+
+.whyus .gspic .f_l {
+    position: relative;
+}
+
+.whyus .gspic div{
+	width: 50%;
+	height: 400px;
+}
+
+.f_l{
+	float: left;
+}
+
+.whyus .gspic .f_l img{
+	width: 100%;
+	height: 100%;
+}
+
+img{
+	border: 0;
+}
+
+.whyus .gspic .f_r{
+	padding-left: 60px;
+	padding-right: 108px;
+	box-sizing: border-box;
+	background-color: #000;
+}
+
+.f_r{
+	float: right;
+}
+
+p{
+	display: block;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+}
+
+b {
+    font-weight: bold;
+}
+
+.whyus .gspic .f_r .line{
+	height: 0;
+	width: 420px;
+	border-top: 1px solid #fff;
+	margin: 20px 0;
+}
+
+.whyus .gspic .f_r p{
+	margin-top: -3px;
+	font-size: 12px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 2;
+	text-align: justify;
+	color: #fff;
+}
+
+.whyus .gspic .f_r a{
+	font-size: 14px;
+	margin-top: 70px;
+	color: #fff;
+	text-decoration: none;
+}
+
+.whyus .gspic .f_r p.artyouwant{
+	color: #fff;
+	font-size: 20px;
+	letter-spacing: 2px;
+	margin-top: 20px;
+}
+/*公司介绍结尾*/
+/*合作伙伴开始*/
+.Cooperative-partner{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 160px;
+	max-width: 1200px;
+	margin: 0 auto;
+	margin-bottom: 120px;
+}
+
+.Cooperative-partner .title{
+	text-align: center;
+	height: 46px;
+	line-height: 46px;
+}
+
+.Cooperative-partner .title h2{
+	letter-spacing: 3px;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 26px;
+	font-weight: 600;
+	font-style: normal;
+	font-stretch: normal;
+	color: #000;
+}
+
+.Cooperative-partner .contentbox{
+	height: 40px;
+	width: 100%;
+	padding: 60px 40px 0 40px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.Cooperative-partner .contentbox img{
+	margin-right: 50px;
+	height: 35px;
+}
+
+.Cooperative-partner .contentbox img:last-child{
+	margin: 0;
+}
+/*合作伙伴结束*/
+
+/*footer开头*/
+body footer{
+	position: absolute;
+	width: 100%;
+}
+
+footer {
+	background-color: #34353d;
+	padding: 70px 10px;
+}
+
+footer .container{
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+footer .footer_top{
+	color: #fff;
+	margin-bottom: 70px;
+	height: 5px;
+	position: relative;
+}
+
+.clearfix{
+	display: block;
+}
+
+footer .footer_top .top_left{
+	float: left;
+	width: 112px;
+	margin-right: 47px;
+}
+
+footer .footer_top .top_left img{
+	width: 100%;
+}
+
+footer .footer_top .top_right{
+	float: left;
+	margin-top: 7px;
+}
+
+footer .footer_top .top_right i{
+	font-size: 20px;
+	color: #fff;
+	margin-right: 25px;
+}
+
+clearfix:after{
+	visibility:hidden;
+	display: block;
+	font-size: 0;
+	content: "";
+	clear: both;
+	height: 0;
+}
+/*
+.fa{
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing:grayscale;
+}
+
+i{
+	font-style: italic;
+}
+
+footer .footer_top .top_right .weixinShare{
+	position: absolute;
+	top: -20px;
+	width: 120px;
+	height: 120px;
+	left: 0;
+	display: none;
+}
+
+footer .footer_top .top_right p+p{
+	margin-top: 20px;
+}
+
+footer .footer_top .top_right p+p i{
+	margin-right: 15px;
+}
+
+footer .footer_top .top_right i{
+	font-size: 20px;
+	color: #fff;
+	margin-right: 25px;
+}
+*/
+
+.clearfix{
+	display: block;
+	
+}
+
+ul{
+	list-style-type: none;
+}
+
+footer .row ul li{
+	margin-right: 130px;
+	float: left;
+}
+
+footer .row ul li strong {
+    padding-bottom: 22px;
+    display: block;
+    font-size: 18px;
+    color: #fff;
+}
+
+footer .row ul li a {
+    padding: 5px 0;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+}
+
+
+/*二维码*/
+footer .row .weixin{
+	float: right;
+	position: relative;
+}
+
+footer .row .weixin .qr1{
+	margin-bottom: 20px;
+}
+
+footer .row .weixin .qrcode>div img:not(.qrimg){
+	display: block;
+	height: 40px;
+}
+
+footer .row .weixin .qrimg{
+	width: 120px;
+	height: 120px;
+	top: -170px;
+	left: 10px;
+	display: none;
+}
+
+footer .row .weixin .saoyisao{
+	display: none;
+	position: absolute;
+	font-size: 12px;
+	top: -35px;
+	left: 24px;
+	color: rgba(255,255,255,0.3);
+}
+
+
+footer .row+p{
+	margin-top: 400px;
+	color: #999;
+	font-size: 12px;
+}
+
+footer .thrid{
+	white-space: nowrap;
+	overflow: hidden;
+	border-top: 1px solid #666;
+	margin: 10px auto 0;
+	color: #999;
+	padding: 10px 0;
+	font-size: 12px;
+}
+
+script {
+    display: none;
+}
+
+footer .thrid i{
+	-moz-transition: all, 0.2s;
+    -webkit-transition: all, 0.2s;
+    -o-transition: all, 0.2s;
+    -ms-transition: all, 0.2s;
+    transition: all, 0.2s;
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    top: 2px;
+    left: 5px;
+    display: inline-block;
+    float: right;
+    position: relative;
+    z-index: 10;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+footer .thrid strong{
+	height: 20px;
+	float: left;
+}
+
+strong,b{
+	font-weight: bold;
+}
+
+footer .thrid span{
+	display: inline-block;
+	overflow: hidden;
+	width: 1200px;
+}
+
+footer .thrid a{
+	text-decoration: none;
+	cursor: pointer;
+	color: #999;
+	margin-left: 20px;
+}
+
+/*分页*/
+.fenye{
+	width: 1200px;
+    margin: 0 auto;
+}
+
+.fenye-1{
+	padding: 10px 310px 20px 310px;
+}
+
+/* 艺术资讯 */
+.zixun{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+
+

@@ -1,0 +1,183 @@
+{{ header }}
+{{ content_top }}
+        
+                <!-- 今日推荐 -->
+                <div class="hf-g hf-g-fixed recommendation">
+                    <div class="clock hf-u-sm-3"><img src="images/clockbg.png"></div>
+                {% for td in tds %}
+                    <div class="hf-u-sm-4 hf-u-lg-3">
+                    <a href="{{ td.link }}">
+                        <div class="info" style="overflow:hidden;">
+                            <h3>{{ td.name }}</h3>
+                            <h4>开年福利篇</h4>
+                        </div>
+                        <div class="recommendationMain ">
+                            <img src="{{ td.image }}">
+                        </div>
+                    </a>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+            
+        </div>
+        <div class="content_bottom">
+            <div class="content">
+                <div class="corechn1_inner">
+                    <div id="H_top" class="box1 top">
+                        <div class="box_td">
+                            <a class="box_td_lk" href="" target="_blank">
+                                <h3 class="box_td_tit">排行榜</h3>
+                                <i class="box_td_arrow"><img src="images/146.png"></i>
+                            </a>
+                        </div>
+                        <div class="box_bd">
+                            <div class="box_top_inner">
+                                <div class="tab top_tab">
+                                    <div class="tab_head"></div>
+                                    <div class="tab_body">
+                                        <div class="tab_body_item">
+                                            <div class="slider top_wrapper">
+                                                <div class="slider_list" style="overflow: hidden;">
+                                                    <div class="slider_wrapper" style="opacity: 1;width: 1400px;transform: translate3d(0px, 0px, 0px);transition: none;">
+                                                        <div class="slider_item top_list slider_active" style="width: 190px;">
+
+                                                            {% for ph in phs %}
+                                                            <div class="top_item">
+                                                                <a class="top_item_lk" href="{{ ph.link }}" target="_blank">
+                                                                    <div class="lazyimg lazyimg_loaded top_item_img">
+                                                                        <img src="{{ ph.image }}">
+                                                                    </div>
+                                                                    <span class="top_item_name" align="center">{{ ph.name }}</span>
+                                                                </a>
+                                                            </div>
+                                                            {% endfor %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="H_daily" class="box2 daily">
+                        <div class="box_td">
+                            <div class="box_td_lk">
+                                <div class="box_td_tit">最新产品</div>
+                                <i class="box_td_arrow"><img src="images/146.png"></i>
+                                <span class="box_all_more">全部更多 ></span>
+                            </div>
+                        </div>
+                        <div class="box_bd">
+                            <div class="slider daily_slider">
+                                <ul class="sale_td">
+                                {% for n in news %}
+                                    <li class="sale_item sale_item_1">
+                                        <a href="" title="" class="image">
+                                            <img src="{{ n.image }}">
+                                        </a>
+                                        <a href="{{ n.link }}" title="" class="line-1">{{ n.name }}</a>
+                                        <div class="line-2"></div>
+                                        <div class="line-3">
+                                            <a href="" class="p4p-promo">
+                                                <span>¥</span>
+                                                <em>{{ n.price }}</em>
+                                            </a>
+                                            <a href="" class="sell">
+                                                月销<em>42</em>笔
+                                            </a>
+                                        </div>
+                                    </li>
+                                {% endfor %}                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="more_inner">
+                    <div class="more_box_td">
+                        <div class="more_lk">
+                            <div class="box_td_tit">商品艺术</div>
+                            <span class="box_all_more"><a href="">全部更多</a></i></span>
+                        </div>
+                    </div>
+                    <div class="box_bd">
+                        <div class="more_list2 clearfix">
+                        {% for y in yss %}
+                            <div class="item_02">
+                                <a href="">
+                                    <div class="img-wrapper2">
+                                        <img src="{{ y.image }}">
+                                    </div>
+                                    <h4>{{ y.name }}</h4>
+                                </a>
+                                <p class="info">
+                                    <span class="price">
+                                        <em>¥</em>{{ y.price }}
+                                    </span>
+                                    <span class="sales">销售：22</span>
+                                </p>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="more_ad">
+                    <ul class="zuanshi">
+                        <li class="zuanshi_item zuanshi_item_0">
+                            <a href=""><img src="images/Suwi8VXa.jpg"></a>
+                        </li>
+                        <li class="zuanshi_item zuanshi_item_0">
+                            <a href=""><img src="images/SuvmwXXa.jpg"></a>
+                        </li>
+                        <li class="zuanshi_item zuanshi_item_0">
+                            <a href=""><img src="images/Suwi130.jpg"></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--猜你喜欢-->
+                <div class="corechn1_inner2">
+                    <div class="H_daily">
+                        <div class="more_box_td">
+                            <div class="more_lk">
+                                <div class="box_td_tit">猜你喜欢</div>
+                                <span class="box_all_more">
+                                    <a href="">全部更多</a>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="box_bd">
+                            <div class="more_list2 clearfix">
+                            {% for l in likes %}
+                                <div class="item_02">
+                                    <a href="">
+                                        <div class="img-wrapper2">
+                                            <img src="{{ l.image }}">
+                                        </div>
+                                        <h4>{{ l.name }}</h4>
+                                    </a>
+                                    <p class="info">
+                                        <span class="price">
+                                            <em>¥</em>{{ l.price }}
+                                        </span>
+                                        <span class="sales">销售：22</span>
+                                    </p>
+                                </div>
+                            {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hotsale-ft">
+                    <i class="hotsale-end" style="display: inline;">END</i>
+                </div>
+            </div>
+        </div>
+
+        
+{{ footer }}

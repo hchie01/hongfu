@@ -1,0 +1,567 @@
+{{header}}
+<style>
+	.register-div{
+		height:780px;
+		background-color:#FFF;
+	}
+	.top-title{
+		margin:0 auto;
+		width:1100px;
+		height:40px;
+		line-height:40px;
+	}
+	.main-div{
+		margin:0 auto;
+
+		height:740px;
+		width:1100px;
+	}
+	.main-div .main-left{
+		float:left;
+		width:200px;
+		height:500px;
+		border:solid 1px #D7D7D7;
+	}	
+	.main-div .main-right{
+		float:left;
+		margin-left:20px;
+		width:680px;
+		height:720px;
+		border:solid 1px #D7D7D7;
+	}
+	.main-div .main-left .main-left-title{
+		background-color: #F5F5F5;
+		height: 40px;
+	}
+	.main-left-tel h5 ,.main-left-title h5 {		
+		padding: 12.5px 20px;
+	}
+	.main-left-content dt{
+		line-height: 40px;
+		font-weight: 600;
+		color: #555;
+		height: 40px;
+		padding: 10px 0 9px 25px;
+		border-bottom: solid 1px #F5F5F5;
+	}
+	.main-left-tel{
+		height:40px;
+		background-color: #F5F5F5;
+	}
+	.main-left-phone dl dd {
+		height:40px;
+		margin:10px 0 10px 25px;
+		list-style:none outside none;
+	}
+	.joinin-step ul li.current {
+	    background-position: -120px -130px;
+	}
+	.joinin-step ul li.step1.current {
+	    background-position: -172px -130px;
+	}
+	.joinin-step ul li {
+		list-style:none;
+		float:left;
+		margin:20px auto;
+		width:120px;
+		font-size: 12px;
+
+		background: url(./view/image/bgimg.png) no-repeat 0 -130px;
+		vertical-align: top;
+
+		letter-spacing: normal;
+
+		word-spacing: normal;
+
+		display: inline-block;
+
+		height: 16px;
+
+		position: relative;
+
+		z-index: 1;
+	}
+	.joinin-step ul{
+		width:600px;
+		height:80px;
+		margin: 20px 160px;;
+	}
+	.joinin-step .step1 {
+		background-position: -172px -130px;
+		width: 68px;
+	}
+	.joinin-step ul li.step4 {
+	    width: 68px;
+	}
+	.joinin-step ul li span{
+		color: #999;
+		text-align: center;
+		width: 120px;
+		height: 20px;
+		margin-left: -60px;
+		position: absolute;
+		z-index: 1;
+		bottom: -30px;
+		left: 50%;
+	}
+	.joinin-concrete .title {
+	    height: 20px;
+	    text-align: center;
+	    padding: 20px 0;
+	    font: 12px/20px "Hiragino Sans GB","Microsoft Yahei",arial,宋体,"Helvetica Neue",Helvetica,STHeiTi,sans-serif;
+	    color: #666;
+	}
+	.apply-agreement-content {
+	    height: 300px;
+	    padding: 10px;
+	    border: solid 1px #EEE;
+	    overflow: auto;
+	}
+	
+	.apple-agreement {
+	    text-align: center;
+	    height: 20px;
+	    line-height: 20px;
+	    margin: 20px 0;
+	}
+	.joinin-concrete .bottom {
+	    text-align: center;
+	    height: 30px;
+	    padding: 20px 0 10px 0;
+	    border-top: solid 1px #EEE;
+	}
+	.joinin-concrete .btn {
+	    font: normal 12px/20px "microsoft yahei";
+	    color: #777;
+	    background-color: #F5F5F5;
+	    text-align: center;
+	    vertical-align: middle;
+	    display: inline-block;
+	    padding: 4px 12px;
+	    border: solid 1px;
+	    border-color: #DCDCDC #DCDCDC #B3B3B3 #DCDCDC;
+	    cursor: pointer;
+	}
+	.step2-info{
+		margin:10px 40px;
+		height:500px;
+		 
+	}
+	.step2-info  ul li{
+		list-style:none;
+	}
+	.step2-name dl dt ,.step2-card dl dt , .step2-tel dl dt,.step2-capt dl dt,.step2-pwd dl dt,.step2-npwd dl dt {
+		float:left;
+	} 
+	#s_name{
+		padding:0 0 0 40px;
+	}
+	#s_card{
+		padding:0 0 0 65px;
+	}
+	#s_tel{
+		padding:0 0 0 53px;
+	}
+	#s_pwd{
+		padding:0 0 0 40px;
+	}
+	#s_npwd{
+		padding:0 0 0 65px;
+	}
+
+	.step2-name, .step2-pwd {
+		padding:30px 173px;
+		height:80px;
+		line-height:80px;
+	}
+	.step2-card, .step2-npwd {
+		padding:30px 147px;
+		height:80px;
+		line-height:80px;
+	}
+	.step2-tel {
+		padding:30px 160px;;
+		height:80px;
+		line-height:80px;
+	}
+	.step2-capt {
+		padding:30px 134px;;
+		height:80px;
+		line-height:80px;
+	}
+	.step2-btn{
+		text-align:center;
+	}
+	.step2-btn input{
+		height:40px;
+		width:80px;
+		background-color:#f86f63;
+		border:0px;
+		border-radius: 3px;
+	}
+	#footer{
+		height:100px;
+		line-height:100px;
+	}
+
+</style>
+<div class='register-div'>
+	<div class='top-title'>
+		<span><i class="fa fa-home"></i></span>
+		<span><a href="/">首页</a></span> >
+		<span>商家入驻申请</span>
+	</div>
+	<div class='main-div'>
+		<div class='main-left'>
+			<div class='main-left-title'><h5><b>商家入驻申请</b></h5></div>
+			<div class='main-left-content'>
+				<dl><dt>签署入驻协议</dt></dl>
+				<dl><dt>商家信息提交</dt></dl>
+				<dl><dt>店铺开通</dt></dl>
+			</div>
+			<div class='main-left-tel'><h5><b>平台联系方式</b></h5></div>
+			<div class = 'main-left-phone'>
+				<dl>
+				    <dd>手机：15321289121</dd>
+				    <dd>电话：84819999转2801/2803	</dd>
+				    <dd>邮箱：sshysbj@163.com</dd>
+				</dl>
+			</div>
+		</div>
+
+		<div class='main-right'>
+			<div class='joinin-step'>
+				  <ul>
+					<li class="step1 current"><span>签订入驻协议</span></li>
+					<li class="step2 current"><span>商家信息提交</span></li>
+					<li class="step4"><span>店铺开通</span></li>
+			          </ul>
+			</div>
+			<div>
+				<form method="post" action="index.php?route=common/register/add" name='form'>			
+					<div class="joinin-concrete">
+						<div style='text-align:center;font-size:18px;color:red'><span>{{error_info}}</span></div>
+
+						<div class='step2-info'>
+							<div class='step2-name'>
+								<dl>
+								    <dt><span>姓名：</span></dt>
+								    <dd><input type="text" name="sname" id ='stepname'></dd>
+								    <dd><span id='s_name'></span></dd>
+								</dl>
+								
+							</div>	
+							<div class='step2-card'>
+								<dl>
+								    <dt><span>身份证号：</span></dt>
+								    <dd><input type="text" name="scard" id ='stepcard'></dd>
+								     <dd><span id='s_card'></span></dd>
+								</dl>
+							</div>
+							<div class='step2-tel'>
+								<dl>
+								    <dt><span>手机号：</span></dt>
+								    <dd><input type="text" name="stel" id = 'steptel'></dd>
+								    <dd><span id='s_tel'></span></dd>
+								</dl>
+								
+							</div>
+							<div class='step2-capt'>
+								<dl>
+								    <dt><span>手机验证码：</span></dt>
+								    <dd><input type="text" name="stel" id = 'stepcapt'></dd>
+								    <dd><span id='s_tel'></span></dd>
+								</dl>
+								
+							</div>
+							<div class='step2-pwd'>
+								<dl>
+								    <dt><span>密码：</span></dt>
+								    <dd><input type="password" name="spwd" id = 'steppwd'></dd>
+								    <dd><span id='s_pwd'></span></dd>
+								</dl>
+								
+							</div>
+							<div class='step2-npwd'>
+								<dl>
+								    <dt><span>确认密码：</span></dt>
+								    <dd><input type="password" name="snpwd" id = 'stepnpwd'></dd>
+								    <dd><span id='s_npwd'></span></dd>
+								</dl>
+								
+							</div>
+							<div class='step2-btn'>
+								<input type="button" value="下一步" id='stepbut'>
+							</div>
+						</div>	
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	var namebool = true;
+	var cardbool = true;
+	var telbool = true;
+	var pwdbool = true;
+	var npwdbool = true;
+	$('#stepname').blur(function (){
+		var name = $('#stepname').val();
+		
+		if(name == ''){
+			$('#stepname').css('border','2px solid red');
+			$("#s_name").html("<font color='red'>请输入姓名</font>");
+		}else{
+			if(name.length>18 || name.length<2){
+				$('#stepname').css('border','2px solid red');
+				$("#s_name").html("<font color='red'>用户名长度为2-18</font>");
+			}else{
+				namebool = true;
+			}
+		}
+
+		
+	})	
+	$('#stepname').focus(function (){
+			$('#stepname').css('border','1px solid #D7D7D7');
+			$("#s_name").html("");
+	
+	})
+
+
+
+
+
+
+	$('#stepcard').blur(function (){
+
+		var card = $('#stepcard').val();
+		
+		if(card == ''){
+			$('#stepcard').css('border','2px solid red');
+			$("#s_card").html("<font color='red'>请填写身份证号</font>");
+		}else{
+			if(card.length !=18 ){
+				$('#stepcard').css('border','2px solid red');
+				$("#s_card").html("<font color='red'>身份证格式错误</font>");
+			}else{
+
+				 $.post(
+					"index.php?route=common/register/check",
+					{type:"cardid",value:card},
+					function(result){
+						 if(result != 0){
+							$('#stepcard').css('border','2px solid red');
+							$("#s_card").html("<font color='red'>身份证已注册</font>");
+						 }else{
+							 cardbool = true;
+						 }
+					}
+				 )
+			}
+		}
+	})	
+	$('#stepcard').focus(function (){
+
+			$('#stepcard').css('border','1px solid #D7D7D7');
+			$("#s_card").html("");
+	
+	})
+
+
+
+
+	$('#steptel').blur(function (){
+
+		var tel = $('#steptel').val();
+		
+		if(tel == ''){
+			$('#steptel').css('border','2px solid red');
+			$("#s_tel").html("<font color='red'>请输入手机号</font>");
+		}else{
+			if(tel.length !=11 || isPhoneNo(tel) == false){
+				$('#steptel').css('border','2px solid red');
+				$("#s_tel").html("<font color='red'>手机号不正确</font>");
+			}else{
+				 $.post(
+					"index.php?route=common/register/check",
+					{type:"tel",value:tel},
+					function(result){
+						 if(result != 0){
+							$('#steptel').css('border','2px solid red');
+							$("#s_tel").html("<font color='red'>手机号已注册</font>");
+						 }else{
+							telbool = true;
+						 }
+					}
+				 )
+			}
+
+		}
+	})	
+	$('#steptel').focus(function (){
+			$('#steptel').css('border','1px solid #D7D7D7');
+			$("#s_tel").html("");
+	
+	})	
+
+
+	$('#steppwd').blur(function (){
+
+		var pwd = $('#steppwd').val();
+		
+		if(pwd == ''){
+			$('#steppwd').css('border','2px solid red');
+			$("#s_pwd").html("<font color='red'>请输入密码</font>");
+		}else{
+			if(pwd.length >16 || pwd.length <6){
+				$('#steppwd').css('border','2px solid red');
+				$("#s_pwd").html("<font color='red'>密码位数6-16</font>");
+			}else{
+				 pwdbool = true;	
+			}
+		}
+	})	
+	$('#steppwd').focus(function (){
+			$('#steppwd').css('border','1px solid #D7D7D7');
+			$("#s_pwd").html("");
+	
+	})
+
+	$('#stepnpwd').blur(function (){
+		var pwd = $('#steppwd').val();
+		var npwd = $('#stepnpwd').val();
+		
+		if(npwd == ''){
+			$('#stepnpwd').css('border','2px solid red');
+			$("#s_npwd").html("<font color='red'>请输入确认密码</font>");
+		}else{
+			if(npwd !=pwd){
+				$('#stepnpwd').css('border','2px solid red');
+				$("#s_npwd").html("<font color='red'>确认密码与密码不一致</font>");
+			}else{
+				npwdbool = true;
+			}
+		}
+	})	
+	$('#stepnpwd').focus(function (){
+			$('#stepnpwd').css('border','1px solid #D7D7D7');
+			$("#s_npwd").html("");
+	
+	})
+
+	
+	$('#stepbut').click(function(){
+		var name = $('#stepname').val();
+		var card = $('#stepcard').val();
+		var tel  = $('#steptel').val();
+		var pwd  = $('#steppwd').val();
+		var npwd = $('#stepnpwd').val();
+		
+		if(name == ''){
+			$('#stepname').css('border','2px solid red');
+			$("#s_name").html("<font color='red'>请输入姓名</font>");
+			namebool = false;
+		}else{
+			if(name.length>18 || name.length<2){
+				$('#stepname').css('border','2px solid red');
+				$("#s_name").html("<font color='red'>用户名长度为2-18</font>");
+				namebool = false;
+			} 
+		}
+		if(card == ''){
+			$('#stepcard').css('border','2px solid red');
+			$("#s_card").html("<font color='red'>请填写身份证号</font>");
+			cardbool = false;
+		}else{
+			if(card.length !=18 || isCardNo($.trim(card) == false)){
+				$('#stepcard').css('border','2px solid red');
+				$("#s_card").html("<font color='red'>身份证格式错误</font>");
+				cardbool = false;
+			}else{
+				 $.post("index.php?route=common/register/check",{type:'cardid',value:card},function(result){
+					if(result != 0){
+						$('#stepcard').css('border','2px solid red');
+						$("#s_card").html("<font color='red'>身份证已注册</font>");
+						cardbool = false;
+					}else{
+						cardbool = true;	
+					}  
+				 });		
+			}
+		}
+		if(tel == ''){
+			$('#steptel').css('border','2px solid red');
+			$("#s_tel").html("<font color='red'>请输入手机号</font>");
+			telbool = false;
+		}else{
+			if(parseInt(tel.length) != 11 || isPhoneNo(tel) == false){
+				$('#steptel').css('border','2px solid red');
+				$("#s_tel").html("<font color='red'>手机号不正确</font>");
+				telbool = false;
+			}else{
+				 $.post("index.php?route=common/register/check",{type:'tel',value:tel},function(result){
+					 if(result != 0){
+						$('#steptel').css('border','2px solid red');
+						$("#s_tel").html("<font color='red'>手机号已注册</font>");
+						telbool = false;
+					 }else{
+						telbool = true;
+					 } 
+				 });		
+			}
+		}
+		if(pwd == ''){
+			$('#steppwd').css('border','2px solid red');
+			$("#s_pwd").html("<font color='red'>请输入密码</font>");
+			pwdbool = false;
+		}else{
+			if(pwd.length >16 || pwd.length <6){
+				$('#steppwd').css('border','2px solid red');
+				$("#s_pwd").html("<font color='red'>密码位数6-16</font>");
+				pwdbool = false;
+			}else{
+				pwdbool = true;
+			}
+		}
+		if(npwd == ''){
+			$('#stepnpwd').css('border','2px solid red');
+			$("#s_npwd").html("<font color='red'>请输入确认密码</font>");
+			npwdbool = false;
+		}else{
+			if(npwd !=pwd){
+				$('#stepnpwd').css('border','2px solid red');
+				$("#s_npwd").html("<font color='red'>确认密码与密码不一致</font>");
+				npwdbool = false;
+			}else{
+				npwdbool = true;
+			}
+		}
+		 
+		if(namebool && cardbool && telbool && pwdbool && npwdbool){
+			$("form[name='form']").submit();
+		}else{
+			 return;
+		}
+		 
+	})
+
+
+	// 验证手机号
+	function isPhoneNo(phone) {  
+	    var pattern = /^1[34578]\d{9}$/;  
+	    return pattern.test(phone);  
+	}
+
+	// 验证身份证 
+	function isCardNo(card) {  
+	   var pattern = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;  
+	   return pattern.test(card); 
+	} 
+
+
+</script>
+
+{{footer}}

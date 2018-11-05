@@ -1,0 +1,73 @@
+
+{% block endtime %}
+  <style type="text/css">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    .time-item strong{
+      background:#cd2426;
+      color:#fff;
+      font-size:18px;
+      font-family:Arial;
+      padding:0 10px;
+      border-radius:5px;
+      box-shadow:1px 1px 3px rgba(0,0,0,0.2);
+    }
+    #day_show{
+      line-height:49px;
+      color:#cd2426;
+      font-size:18px;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+    .item-title .unit{
+      background:none;
+      line-height:49px;
+      font-size:24px;
+      padding:0 10px;
+      float:left;
+    }
+  </style>
+
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript">
+
+      var intDiff = parseInt(7200);//倒计时总秒数量
+
+      function timer(intDiff){
+          window.setInterval(function(){
+              var day=0,
+                  hour=0,
+                  minute=0,
+                  second=0;//时间默认值
+              if(intDiff > 0){
+                  day = Math.floor(intDiff / (60 * 60 * 24));
+                  hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+                  minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+                  second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+              }
+              if (minute <= 9) minute = '0' + minute;
+              if (second <= 9) second = '0' + second;
+              $('#day_show').html(day+"天");
+              $('#hour_show').html('<s id="h"></s>'+hour+'时');
+              $('#minute_show').html('<s></s>'+minute+'分');
+              $('#second_show').html('<s></s>'+second+'秒');
+              intDiff--;
+          }, 1000);
+      }
+
+      $(function(){
+          timer(intDiff);
+      });
+  </script>
+
+<div align="center" style="width:250px; height: 35px; margin:0 auto">
+  <div class="time-item">
+    <span id="day_show">0天</span>
+    <strong id="hour_show">0时</strong>
+    <strong id="minute_show">0分</strong>
+    <strong id="second_show">0秒</strong>
+  </div><!--倒计时模块-->
+</div>
+{% endblock %}

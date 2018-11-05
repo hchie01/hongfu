@@ -1,0 +1,607 @@
+{{ header }}
+
+<style type="text/css">
+  *{margin:0;padding:0;list-style-type:none;}
+  a,img{border:0;text-decoration:none;}
+  body{font:12px/180% Arial, Helvetica, sans-serif ,"新宋体";}
+  p{margin:0px;padding:0px;line-height:20px;}
+  i{margin:0px;padding:0px;font-style:normal;}
+  ul{margin:0px;padding:0px;list-style:none;}
+  ul li{margin:0px;padding:0px;list-style:none;}
+  a{color:#333333;text-decoration:none;}
+  a:hover{color:#ff5a00;text-decoration:none;}
+  .clear{clear:both;font-size:0px;line-height:0;height:0;}
+
+  @font-face {
+    font-family: 'icomoon';
+    src:url('/catalog/view/theme/default/paim/fonts/fonts/icomoon.eot?qradjf');
+    src:url('/catalog/view/theme/default/paim/fonts/icomoon.eot?qradjf#iefix') format('embedded-opentype'),
+    url('/catalog/view/theme/default/paim/fonts/icomoon.ttf?qradjf') format('truetype'),
+    url('catalog/view/theme/default/paim/fonts/icomoon.woff?qradjf') format('woff'),
+    url('catalog/view/theme/default/paim/fonts/icomoon.svg?qradjf#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  .demo-icon{
+    font-family:"icomoon";
+    font-style:normal;
+    font-weight:normal;
+    speak:none;
+    display:inline-block;
+    text-decoration:inherit;
+    text-align:center;
+    font-variant:normal;
+    text-transform:none;
+    font-size:24px;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:24px;
+    color:#999;
+  }
+
+  /*new right*/
+  .cndns-right{position:fixed;right:1px;top:50%;margin-top:-100px;z-index:100}
+  .cndns-right-meau{position:relative;}
+  .cndns-right-btn{width:48px;height:48px;border:1px solid #ddd;text-align:center;display:block;margin-bottom:6px;position:relative;background-color:#fff}
+  .cndns-right-btn span{color:#848484;font-size:26px;line-height:48px;}
+  .cndns-right-btn sup{display:block;min-width:24px;height:24px;text-align:center;line-height:24px;color:#fff;border-radius: 50%;background-color:#ff6800;position:absolute;left:-12px;top:-12px;}
+  .cndns-right-btn p{color:#ff6800;font-size:14px;line-height:18px;padding-top:5px;display:none;}
+  .cndns-right-meau:hover .cndns-right-btn span{display:none}
+  .cndns-right-meau:hover .cndns-right-btn p{display:block;}
+  .meau-car .cndns-right-btn {border-color:#ff6800;margin-bottom:20px;}
+  .meau-car.cndns-right-meau:hover .cndns-right-btn{background-color:#ff6800}
+  .meau-car.cndns-right-meau:hover .cndns-right-btn span{color:#fff;display:block;}
+  .meau-car .cndns-right-btn span{color:#ff6800;}
+  .meau-sev .cndns-right-btn{border-color:#ff6800;background:url(catalog/view/theme/default/img/02index-banner-8.gif) no-repeat #ff6800 center;}
+  .meau-sev .cndns-right-btn p{color:#fff}
+  .meau-sev .cndns-right-btn span{color:#fff}
+  .meau-top .cndns-right-btn span{font-size:12px;line-height:12px;padding-top:10px;display:block}
+  .meau-top .cndns-right-btn i{display:block;color:#999}
+  .meau-top.cndns-right-meau:hover .cndns-right-btn{background-color:#ff6800}
+  .meau-top.cndns-right-meau:hover .cndns-right-btn span{display:block;color:#fff}
+  .meau-top.cndns-right-meau:hover .cndns-right-btn i{color:#fff;}
+  .cndns-right-box{position:absolute;top:-15px;right:48px;padding-right:25px;display:none;}
+  .cndns-right-box .box-border{border:1px solid #ccc;border-top:4px solid #ff6800;padding:20px;background-color:#fff;-webkit-box-shadow: 0 3px 8px rgba(0,0,0,.15);-moz-box-shadow: 0 3px 8px rgba(0,0,0,.15);box-shadow: 0 3px 8px rgba(0,0,0,.15);position:relative}
+  .cndns-right-box .box-border .arrow-right{display:block;width:13px;height:16px;background:url(catalog/view/theme/default/img/arrow.png) no-repeat;position:absolute;right:-13px;top:26px;}
+  .cndns-right-box .box-border .sev-t span{font-size:42px;float:left;display:block;line-height:56px;margin-right:20px;color:#d3d3d3}
+  .cndns-right-box .box-border .sev-t p{float:left;color:#ff6800;font-size:24px;line-height:28px;}
+  .cndns-right-box .box-border .sev-t p i{display:block;font-size:14px;color:#aaa;}
+  .cndns-right-box .box-border .sev-b{padding-top:15px;margin-top:15px;border-top:1px solid #e4e4e4}
+  .cndns-right-box .box-border .sev-b h4{color:#666;font-size:14px;font-weight:normal;padding-bottom:15px;}
+  .cndns-right-box .box-border .sev-b li{float:left;width:33.33333%}
+  .cndns-right-box .box-border .sev-b li a{display:inline-block;color:#999;font-size:13px;padding-left:43px;background:url(catalog/view/theme/default/img/q1.gif) no-repeat left 3px;line-height:36px;}
+  .cndns-right-box .box-border .sev-b li a:hover{color:#ff6800}
+  .meau-sev .cndns-right-box .box-border{width:430px;}
+  .meau-contact .cndns-right-box .box-border{width:230px;}
+  .cndns-right-meau:hover .cndns-right-box{display:block}
+  .meau-code .cndns-right-box{top:inherit;bottom:-35px;}
+  .meau-code .cndns-right-box .box-border{width:156px;text-align:center;border-top:1px solid #ccc;}
+  .meau-code .cndns-right-box .box-border i{display:block;color:#f66e06;font-size:16px;line-height:16px;}
+  .meau-code .cndns-right-box .box-border .arrow-right{top:inherit;bottom:50px;}
+  .meau-sev .cndns-right-btn .demo-icon{display:none;}
+  .meau-sev:hover .cndns-right-btn{background:#ff6800}
+  .meau-zs .cndns-right-btn{background-color:#ff6800;color:#fff;margin-top:80px;border-color:#ff6800}
+  .meau-zs .cndns-right-btn span{color:#fff}
+  .meau-zs .cndns-right-btn p{color:#fff}
+</style>
+  <!-- 点赞 变红 功能 -->
+  <style type="text/css">
+    .like{
+      font-size:35px;
+      color:#ccc;
+      cursor:pointer;
+    }
+    .cs{
+      color: #ff0000;
+    }
+  </style><!-- 点赞功能结束 -->
+
+<div  style="width:100%;height:90px"></div>
+<link rel="stylesheet" href="catalog/view/theme/default/paim/css/pmxq.css">
+<!-- 商品 -->
+<div class="Xcontent">
+  <ul class="Xcontent01">
+    <div class="Xcontent06">
+      <input type="hidden" id="parentBox" value="{{ c.image }}">
+      <iframe style="width:100%;height:100%" scrolling="no" frameborder="0" src="/catalog/view/theme/default/paim/paimaisp.html"></iframe>
+
+      <div class="author-msg">
+        <div class="author">
+          <div class="item" ms-click="@goArtist(el.id)" avalon-events="click:eclick_0_64goArtist40e146id41">
+            <div class="p-img dynamic" id="j-artist">
+              <img class="j-lazyload-loaded" ms-attr="{'data-original': el.portrait}" alt data-original="" src="" style="display: block;"/>
+            </div>
+            <div class="span-info fl one-line">
+              <p class="f-s-14 j-hover">时硕亮</p>
+            </div>
+            <div class="no-attention fl" ms-click="!el.whetherCollection ? @attention($event, el):''" ms-class="el.whetherCollection ? 'attention' : ''" avalon-events="click:eclick_0_33el46whetherCollection6364attention40$event44el41583939">
+
+            </div>
+          </div>
+        </div>
+        <div class="praise">
+          <p class="like">&#10084;</p>
+        </div>
+      </div>
+    </div>
+
+    <ol class="Xcontent13">
+      <div class="Xcontent14">
+        <a href="#"><p>{{ c.name }}</p></a>
+      </div>
+      <div class="Xcontent15">
+        <img src=""/>
+      </div>
+      <div class="Xcontent16">
+        <p>为避免产生交易风险及损失,代拍前请务必了解雅虎卖家的交易状态,及页面说明！<a href="#read">《拍前必读》</a></p>
+      </div>
+      <div class="Xcontent17">
+        <p class="Xcontent18">当前价</p>
+        <p class="Xcontent19">¥ <span class="nowprice">{{ c.maxnum }}</span></p>
+        <div class="Xcontent20">
+          <p class="Xcontent21">估价</p>
+          <!--<img src="../img/x12.png"/>-->
+          <p class="Xcontent22">¥ <span id="pe">{{ c.price }}</span></p>
+        </div>
+        <div class="Xcontent23">
+          <p class="Xcontent24">保证金</p>
+          <p  class="Xcontent25">¥<span id="bz">{{ c.crinfo.bzprice }}</span></p>
+        </div>
+      </div>
+      <!--<div class="Xcontent26">
+          <p class="Xcontent27">起拍价</p>
+          <p class="Xcontent28">¥ 100</p>
+      </div>-->
+      <div class="Xcontent29">
+        <p class="Xcontent30">服务费</p>
+        <p class="Xcontent31">{{ c.fuprice }}</p>
+        <p class="Xcontent31">元</p>
+      </div>
+      <div class="Xcontent32">
+        <p class="Xcontent33">出价</p>
+        <p class="Xcontent34">{{ c.outcount }}次</p>
+      </div>
+      <div class="Xcontent35">
+        <p class="Xcontent36"></p>
+        <div class="Xcontent37 Xcontent19">
+          <span>{{ c.stock_status }}:</span>
+          <span id="a_{{ c.product_id }}">天</span>
+          <span id="b_{{ c.product_id }}">时</span>
+          <span id="c_{{ c.product_id }}">分</span>
+          <span id="d_{{ c.product_id }}">秒</span>
+          </span>
+          <script>
+              function end_{{ c.product_id }}(){
+                  var aa = document.getElementById('a_{{ c.product_id }}');
+                  var bb = document.getElementById('b_{{ c.product_id }}');
+                  var cc = document.getElementById('c_{{ c.product_id }}');
+                  var dd = document.getElementById('d_{{ c.product_id }}');
+                  var n = new Date();
+                  // 转换时间戳
+                  var nn = parseInt(n.getTime()/1000)+28800;
+                var sta = new Date('{{ c.date_available }}');
+                var e = new Date('{{ c.end_available }}');
+                  if(sta>n){
+                     var time = new Date('{{ c.date_available }}');
+                  }
+                  if(sta<n && e>n){
+                     var time = new Date('{{ c.end_available }}');
+                  }
+                  var ee = time.getTime()/1000;
+                  
+                  var ct = ee - nn;
+
+                  if(ct<=0){
+                      $.ajax({
+                          url: 'index.php?route=ebaypro/ebaypro/move_product',
+                          // dataType:'json',
+                          data: { product_id:{{ c.product_id }},end_available:true,endtime:true },
+                          type: 'POST',
+                          success: function(data){
+                             window.location.reload(true);
+{#                              console.log(data);#}
+                          },
+                          error: function(){
+                              alert('请求发送失败了!!!');
+                          },
+                          async: true
+                      });
+                      return;
+                  }
+                  var intDiff = parseInt(ct);//倒计时总秒数量        //
+                  function timer(intDiff){
+                      var day=0,
+                          hour=0,
+                          minute=0,
+                          second=0;//时间默认值
+                      window.setInterval(function(){
+                          if(intDiff > 0){
+                              day = Math.floor(intDiff / (60 * 60 * 24));
+                              hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+                              minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+                              second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+                          }
+                          if (minute <= 9) minute = '0' + minute;
+                          if (second <= 9) second = '0' + second;
+                          if(intDiff <= 0){
+                              clearInterval(intDiff <= 0);
+                              return;
+                          }
+                          aa.innerText = day+ '天';
+                          bb.innerText = hour+'时';
+                          cc.innerText = minute+'分';
+                          dd.innerText = second+'秒';
+                          intDiff--;
+                      }, 1000);
+                  }
+                  timer(ct);
+              }
+              end_{{ c.product_id }}()
+          </script>
+        </div>
+      </div>
+      <div class="Xcontent38">
+        <p class="Xcontent39"></p>
+        <p class="Xcontent40"></p>
+      </div>
+      <div class="Xcontent42">
+        <div class="tb-btn tb-btn-basket theme-login">
+          <a id="likbasket" title="" href="index.php?route=account/wishlist&product_id={{ c.product_id }}"><i></i>立即收藏</a>
+        </div>
+      </div>
+    </ol>
+  </ul>
+</div>
+
+<script>
+
+    var n = new Date();
+    var sta = new Date('{{ c.date_available }}');
+    // 转换时间戳
+    var nt = parseInt(n.getTime()/1000)+28800;
+    var start = sta.getTime()/1000;
+   if(bz_price >= price){
+    var bz_price = parseInt(document.getElementById('bz').innerText);
+    var price = parseInt(document.getElementById('pe').innerText);
+ 
+        document.getElementsByClassName('Xcontent42')[0].innerHTML =
+            '<input class ="aaaaa" type="number" style="color:red;width:170px;height:40px;" value="">'+'&nbsp;'
+            +'<input  style="color:red;width:70px;height:44px;color:#F0F8FF;font-size: 25px;background-color: red;" type="submit" class="mit" value="出价">';
+
+    document.getElementsByClassName('mit')[0].onclick = function(){
+        var aaa = document.getElementsByClassName('aaaaa')[0];
+        var np = document.getElementsByClassName('nowprice')[0];
+        if(!np.innerText && !aaa.value){
+            np.innerText = parseInt(price) + 10;
+        }else if(!aaa.value){
+            np.innerText = 1000 + parseInt(np.innerText);
+        }else{
+            np.innerText = parseInt(aaa.value) + parseInt(np.innerText);
+        }
+        var nt = new Date();
+        var ntime = nt.getTime()/1000;
+        $.ajax({
+            url: 'index.php?route=ebaypro/ebaypro/outprice',
+            type: 'post',
+            data: {tel:{{ c.crinfo.telephone }},nowprice:np.innerText,nowtime:ntime,product_id:{{ c.product_id }},uid:{{ c.crinfo.customer_id }},shop_id:{{ c.shop_id }}},
+            // dataType:'json',
+            success: function(data){
+                // window.location.reload(true);
+                // console.log(data);
+            },
+            error: function(){
+                alert('请求发送失败了!!!');
+            },
+            async: true
+        });
+    }
+    }
+</script>
+
+<!-- 商品详情、售后 -->
+<div class="img-text">
+  <div class="j-nav" id="j-nav">
+    <div class="tabs w">
+      <div class="btn active" ms-class="@tab===1? 'active':''" old-change-class="active">
+        <div class="tab-btn" ms-click="@toggleTab(1)" avalon-events="click:eclick_0_64toggleTab404941">
+          图文详情
+        </div>
+      </div>
+      <div class="btn" ms-class="@tab===2? 'active':''">
+        <div class="tab-btn" ms-click="@toggleTab(2)" avalon-events="click:eclick_0_64toggleTab405041">
+          <a class="tab-btn" href="#info">出价记录</a>
+        </div>
+      </div>
+      <div class="btn" ms-class="@tab===3? 'active':''">
+        <div class="tab-btn" ms-click="@toggleTab(3)" avalon-events="click:eclick_0_64toggleTab405041">
+          <a class="tab-btn" href="#read">拍卖须知</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .clearfix span{
+      color:red;
+      width: 100px;
+      height: 21.11px;
+    }
+  </style>
+  <div class="j-contain">
+    <ul class="productsInformation">
+      <li class="clearfix">
+        <div>
+          <span style="width: 100px;">作品名称：</span>
+          <h1>寻山手记 系列之二</h1>
+        </div>
+        <div>
+							<span>艺术家：
+								<span class="justify_fix"></span>
+							</span>
+          <a href="#">徐青</a>
+        </div>
+        <div>
+          <span>材质：</span>
+          纸本水彩
+        </div>
+      </li><br>
+      <li class="clearfix">
+        <div>
+          <span>尺寸：</span>
+          39×27cm
+        </div>
+        <div>
+          <span style="width: 100px;">创作时间：</span>
+          2017
+        </div>
+        <div>
+          <span style="width: 100px;">作品类型：</span>
+          水彩（粉）
+        </div>
+      </li>
+      <li class="clearfix">
+        <div>
+          <span>风格：</span>
+          具象表现
+        </div>
+        <div>
+          <span>题材：</span>
+          风景
+        </div>
+      </li>
+      <li>
+        <div>
+          <span>描述：</span>
+
+        </div>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab-description">{{ c.description }}</div>
+    </div>
+
+    <div class="details">
+        {% for img in c.pimage %}
+      <div class="item">
+        <img src="{{ img.image }}" style="display: inline;vertical-align: middle;"/>
+      </div>
+      {% endfor %}
+
+      <div class="hr">
+        <hr>
+      </div><a name="info"></a>
+      <div class="morebid cand102" id="cand102" data="102">
+        <h3 class="fonts pubtitle info">出价记录</h3>
+        <div class="title">
+          <div>藏友</div>
+          <div class="pirce">出价</div>
+          <div>时间</div>
+          <div class="last">IP</div>
+        </div>
+        <ul><a id="read"></a>
+          {% for info in c.outinfo %}
+          <li>
+            <div>{{ info.name }}</div>
+            <div class="pirce">¥{{ info.nowprice }}</div>
+            <div>{{ info.outtime }}</div>
+            <div class="last">{{ info.ip }}</div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="hr">
+
+      </div>
+      <div id="notice" class="hidden-xs">
+        <div class="title f-s-20">拍卖须知</div>
+        <div class="color-909090 f-s-16 content">
+          <div  class="t-name">竞买须知</div>
+
+          <div>拍卖前请仔细阅读拍卖帮助及竞买须知,一旦出价无法修改;一旦参加本场竞买，拍卖人视买受人已经同意遵守本公司网络拍卖规则。</div>
+          <div class="t-name">拍卖流程</div>
+          <div>注册账号并登录→选择拍品→进入拍品页面点击“出价”→竞价成功→5个自然日内付款→发货→签收</div>
+          <div class="t-name">保证金</div>
+          <div>买受人需在竞买结束后的5个自然日内支付拍品价款，否则本公司将扣除其保证金。若未竞得拍品，保证金将会在本场拍卖结束后退还给竞买人。</div>
+        </div>
+      </div>
+
+      <div class="j-contain">
+        <img src="catalog/view/theme/default/img/137.png" alt="">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 更多作品 -->
+<div id="more">
+  <div class="more-products" ms-if="el.productInfoList.length">
+    <h2 class="title">更多作品</h2>
+    <ul class="product-list">
+      {% for rs in r %}
+        <a href="{{ rs.href }}">
+      <li class="product-item">
+        <div class="p-img dynamic">
+          <img class="j-lazyload-loaded" src="{{ rs.image }}"/>
+        </div>
+        <div class="info">
+          <p class="name one-line">{{ rs.name }}</p>
+          <p class="price">{{ rs.price }}</p>
+        </div>
+      </li></a>
+      {% endfor %}
+    </ul>
+    <a ms-attr="{href: '/h5/views/artist/artist.html?artistId=' + el.artistId}" target="_blank" class="show-more" href="#">查看更多</a>
+  </div>
+</div>
+
+
+<div class="com-footer">
+  <div class="com-about">
+    <ul class="com-about-cont">
+      <li>
+        <p class="title">客服电话</p>
+        <p class="Tel">4000000000</p>
+        <p class="time">9:00-18:00</p>
+      </li>
+      <li class="center">
+        <p class="title">红福网商城</p>
+        <p class="txt">
+          红福俱乐部是由益达亚太有限公司、诗书画艺颂（北京）文化产业有限责任公司（上市企业代码：367652），共同发起成立的服务会员股东的内设高端平台。
+          红福俱乐部创建伊始便本着“立足自身环境，发展自身优势”组织互动高端资源，努力服务全体成员。
+
+        </p>
+      </li>
+      <li>
+        <p class="title">关于我们</p>
+        <p class="follow">
+          <img src="catalog/view/theme/default/img/hongfuerweima.jpg" width="90" height="90">
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- 返回顶部开始 -->
+
+
+<!--右侧-->
+{#<div class="cndns-right">#}
+  {#<div class="cndns-right-meau meau-car">#}
+    {#<a href="#" class="cndns-right-btn">#}
+      {#<span class="demo-icon">&#xe900;</span>#}
+      {#<sup>0</sup>#}
+    {#</a>#}
+  {#</div>#}
+  {#<div class="cndns-right-meau meau-sev">#}
+    {#<a href="javascript:" class="cndns-right-btn">#}
+      {#<span class="demo-icon">&#xe901;</span>#}
+      {#<p>#}
+        {#在线<br />#}
+        {#客服#}
+      {#</p>#}
+    {#</a>#}
+    {#<div class="cndns-right-box">#}
+      {#<div class="box-border">#}
+        {#<div class="sev-t">#}
+          {#<span class="demo-icon">&#xe901;</span>#}
+          {#<p>在线客服<i>服务时间：9:00-24:00</i></p>#}
+          {#<div class="clear"></div>#}
+        {#</div>#}
+        {#<div class="sev-b">#}
+          {#<h4>选择下列产品马上在线沟通：</h4>#}
+          {#<ul id="zixunUl">#}
+            {#<li><a href="javascript:void(0);">购买艺术</a></li>#}
+            {#<li><a href="javascript:void(0);">作品征集</a></li>#}
+            {#<li><a href="javascript:void(0);">合作伙伴</a></li>#}
+            {#<!--<li><a href="javascript:void(0);">代理咨询</a></li>#}
+            {#<li><a href="javascript:void(0);">网站推广</a></li>#}
+            {#<li><a href="javascript:void(0);">橙云主机</a></li>#}
+
+            {#<li><a href="javascript:void(0);">域名交易</a></li>#}
+
+            {#<li><a href="javascript:void(0);">租用托管(BGP)</a></li>#}
+
+            {#<li><a href="javascript:void(0);">其他产品</a></li>-->#}
+            {#<div class="clear"></div>#}
+          {#</ul>#}
+        {#</div>#}
+        {#<span class="arrow-right"></span>#}
+      {#</div>#}
+    {#</div>#}
+  {#</div>#}
+  {#<div class="cndns-right-meau meau-contact">#}
+    {#<a href="javascript:" class="cndns-right-btn">#}
+      {#<span class="demo-icon">&#xe902;</span>#}
+      {#<p>#}
+        {#客服<br />#}
+        {#热线#}
+      {#</p>#}
+    {#</a>#}
+    {#<div class="cndns-right-box">#}
+      {#<div class="box-border">#}
+        {#<div class="sev-t">#}
+          {#<span class="demo-icon">&#xe902;</span>#}
+          {#<p>400-123-4567<br /><i>7*24小时客服服务热线</i></p>#}
+          {#<div class="clear"></div>#}
+        {#</div>#}
+        {#<span class="arrow-right"></span>#}
+      {#</div>#}
+    {#</div>#}
+  {#</div>#}
+  {#<div class="cndns-right-meau meau-code">#}
+    {#<a href="javascript:" class="cndns-right-btn">#}
+      {#<span class="demo-icon">&#xe903;</span>#}
+      {#<p>#}
+        {#关注<br />#}
+        {#微信#}
+      {#</p>#}
+    {#</a>#}
+    {#<div class="cndns-right-box">#}
+      {#<div class="box-border">#}
+        {#<div class="sev-t">#}
+          {#<img src="/catalog/view/theme/default/img/hongfuerweima.jpg" />#}
+          {#<i>关注官方微信</i>#}
+        {#</div>#}
+        {#<span class="arrow-right"></span>#}
+      {#</div>#}
+    {#</div>#}
+  {#</div>#}
+  {#<div class="cndns-right-meau meau-top" id="top-back">#}
+    {#<a href="javascript:" class="cndns-right-btn" onclick="topBack()">#}
+      {#<span class="demo-icon">&#xe904;</span>#}
+      {#<i>顶部</i>#}
+    {#</a>#}
+  {#</div>#}
+
+{#</div>#}
+
+<script type="text/javascript">
+    //置顶图标显示
+    $('#top-back').hide()
+    $(window).scroll(function(){
+        if($(this).scrollTop() > 350){
+            $("#top-back").fadeIn();
+        }
+        else{
+            $("#top-back").fadeOut();
+        }
+    })
+    //置顶事件
+    function topBack(){
+        $('body,html').animate({scrollTop:0},300);
+    }
+</script>
+<!-- 返回顶部结尾 -->
+
+<script>
+    $(function () {
+        $(".like").click(function () {
+            $(this).toggleClass('cs');
+        })
+    })
+</script>
+
+
+{{ footer }}

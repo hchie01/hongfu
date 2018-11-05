@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+//
+// @copyright        2017 opencart.cn - All Rights Reserved
+// @link             http://www.guangdawangluo.com
+// @author           Pu shuo <pushuo@opencart.cn>
+// @created          2017-10-10 16:44:05
+// @modified         2017-12-13 09:50:59
+//
+
+@media (max-width: 768px) {
+  .product-wrapper .product-layout.col-xs-6:nth-child(2n+1) {
+    padding-right: 7.5px;
+  }
+
+  .product-wrapper .product-layout.col-xs-6:nth-child(2n+2) {
+    padding-left: 7.5px;
+  }
+}
+
+.product-thumb {
+  margin-bottom: 30px;
+  background-color: #fff;
+  border: $default-border;
+  padding-bottom: 10px;
+  @include transition(all .3s ease-out);
+
+  &:hover {
+    @include box-shadow(0 -1px 16px 6px #e4e4e4);
+  }
+
+  .caption, .button-group {
+    padding: 0 10px;
+
+    @media (max-width: 376px) {
+      padding: 0 5px;
+    }
+  }
+
+  .product-name {
+    overflow: hidden;
+    height: 20px;
+    margin: 5px 0 6px 0;
+
+    a {
+      color: #444;
+      font-size: 15px;
+    }
+  }
+
+  .product-description {
+    color: #999;
+    display: none;
+  }
+
+  .rating {
+    position: relative;
+    padding-bottom: 19px;
+
+    &:before {
+      position: absolute;
+      content: "";
+      top: 28px;
+      left: 0px;
+      height: 1px;
+      width: 100px;
+      background: #ddd;
+    }
+  }
+
+  .price {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: $brand-primary;
+    font-weight: 600;
+
+    @media (max-width: 768px) {
+      font-size: 15px;
+    }
+
+    .price-old {
+      font-weight: 500;
+      color: #888;
+      text-decoration: line-through;
+
+      @media (max-width: 768px) {
+        font-size: 13px;
+      }
+    }
+  }
+
+  .button-group {
+    .btn {
+      padding: 7px 13px;
+
+      @media (max-width: 376px) {
+        padding: 4px 10px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.product-list .product-thumb {
+  overflow: hidden;
+  padding-bottom: 0;
+
+  .image {
+    float: left;
+    display: inline-block;
+    width: 200px;
+  }
+
+  .caption {
+    margin-left: 200px;
+
+    .product-description {
+      display: block;
+    }
+  }
+
+  .button-group {
+    margin: 0 0 10px 200px;
+  }
+}

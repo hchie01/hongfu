@@ -1,0 +1,189 @@
+@charset "UTF-8";
+
+//
+// @copyright        2017 opencart.cn - All Rights Reserved
+// @link             http://www.guangdawangluo.com
+// @author           Sam Chen <sam.chen@opencart.cn>
+// @created          2017-09-25 15:34:25
+// @modified         2017-12-19 12:28:35
+//
+
+nav#top {
+  background-color: $page_top_bg_color;
+  color: $page_top_color;
+  height: $page_top_height;
+  border-bottom: $page_top_border;
+
+  .list-inline {
+    > li {
+      height: $page_top_height;
+      line-height: $page_top_height;
+    }
+  }
+
+  .btn-group, .list-inline li {
+    &:hover {
+      .dropdown-menu {
+        display: block;
+        visibility: visible;
+        top: 100%;
+      }
+    }
+  }
+
+
+  a,button {
+    color: $page_top_color;
+    font-size: 12px;
+    &:hover {
+      color: $page_top_bg_color_hover !important;
+    }
+  }
+
+  .dropdown-menu {
+    button, a {
+      color: #333;
+      text-align: left;
+      padding: 8px 13px;
+      &:hover {
+        background-color: #eee;
+        color: $page_top_bg_color_hover;
+      }
+    }
+  }
+
+  .pull-left {
+    margin-right: 10px;
+    .btn-group {
+      > button {
+        height: $page_top_height;
+        padding: 0;
+      }
+    }
+  }
+}
+
+header {
+  padding: $header_padding;
+
+  h1 {
+    margin: 0;
+  }
+
+  #search {
+    margin: 10px 10% 0;
+    width: 80%;
+
+    input {
+      // background: #f9f9f9;
+      border-color: $brand-primary;
+    }
+
+    button {
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 99;
+      font-size: 14px;
+      height: 36px;
+      padding: 0 15px;
+      // background: transparent;
+      border: transparent;
+      // color: $brand-primary;
+    }
+  }
+
+  #logo {
+    @media (max-width: 992px) {
+      text-align: center;
+    }
+    img {
+      display: inline-block;
+    }
+  }
+
+  #cart {
+    margin-top: 10px;
+
+    .no-results {
+      margin-bottom: 0;
+      padding: 16px 6px;
+    }
+
+    &:hover {
+      .dropdown-menu {
+        display: block;
+        visibility: visible;
+        top: 100%;
+      }
+    }
+
+    > button {
+      padding: 0;
+      float: right;
+      font-size: 14px;
+      background: #fff;
+      text-align: right;
+
+      &:active {
+        box-shadow: none;
+      }
+
+      span {
+        border: 1px solid #d4d4d4;
+        background-color: #f8f8f8;
+        height: 36px;
+        line-height: 36px;
+        padding: 0 7px;
+        display: inline-block;
+      }
+
+      i {
+        font-size: 16px;
+        background: $brand-primary;
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+        text-align: center;
+        color: #fff;
+      }
+    }
+
+    .dropdown-menu {
+      min-width: 350px;
+      padding: 10px;
+
+      li {
+        border-bottom: none;
+
+        .name {
+          height: 33px;
+          line-height: 16px;
+          overflow: hidden;
+          display: inline-block;
+        }
+
+        &.products {
+          max-height: 400px;
+          overflow: hidden;
+          overflow-y: scroll;
+
+          a {
+            color: #333;
+          }
+        }
+      }
+
+      img {
+        min-width: 50px;
+        transition: none;
+      }
+
+      .btn-danger {
+        background: #fff;
+        color: #555;
+        border-color: #eee;
+      }
+    }
+  }
+}

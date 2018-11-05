@@ -1,0 +1,276 @@
+{{ header }}
+<style>
+	footer{
+		margin-top:0;
+	}
+	#middle{
+		margin-top:74px;
+		height:800px;
+		background-image:url(catalog/view/theme/default/image/login-bgm.png);
+		background-repeat:no-repeat;
+		 		 
+	}
+	#mid-left{
+		float:left;
+		margin-top:40px;
+		margin-left:495px; 
+		padding:20px;
+		width:950px;
+		background:rgba(0,0,0,0.3);
+		height:700px;
+	}
+	#mid-register{
+		padding:10px;
+		background-color:#fffffe;
+		height:660px;
+	}
+	#m-left{
+		float:left;
+		padding:10px;
+		border-right:solid 1px #E6E6E6;
+		width:60%; 
+		background-color:#fffffe;
+		height:640px;
+	}
+	#m-left ul li{
+		border-bottom: solid 1px #E6E6E6;
+		list-style:none;
+		color:red;
+		font-size:18px;
+		height:40px;
+		text-align: center;
+	}
+	#m-left dl{
+	        background-color: #FFF;
+	        width: 473px;
+	        height: 52px;         
+	        margin-left: 40px;
+	        border: solid 1px #E6E6E6;
+	        position: relative;
+	        z-index: 1;
+	}
+	#m-left dl dt{
+	        font-size: 14px;
+	        line-height: 20px;
+	        color: #666;
+	        width: 106px;
+	        padding: 16px 0 16px 20px;
+	        float: left; 
+	}
+	#m-left dl dd{
+	        height: 36px;
+		float: left;
+		padding: 8px 0;
+	}
+	#m-left dl dd .text{
+	        font-size: 14px;
+	        line-height: 36px;
+	        width: 360px;
+	        height: 36px;
+	        padding: 0;
+	        border: none 0;
+
+	}
+	#m-left .cap-div dl {
+	        width: 340px;
+		float: left;       
+	}
+	#m-right{
+		
+		float:right;
+		padding:30px 20px;
+		width:40%;
+		text-align: center;
+		height:640px;
+		
+	}
+	.cap100 {
+		width: 100px !important;
+	}
+	.pwd-div , .tcap-div{
+		clear:both;
+	}
+	 
+	#m-left .pwd-div .pwd{
+		font-size: 14px;
+	        line-height: 36px;
+	        width: 260px;
+	        height: 36px;
+	        padding: 0;
+	        border: none 0;
+	}
+	#m-left .xieyi , .bt-div {
+		margin-left: 40px;
+	}
+	.bt-div .submit{
+		width:473px;
+		height:40px;
+		font-size:20px;
+
+	}
+</style>
+	<div id='middle'>
+		<div id='mid-left' >
+		    <div id='mid-register'>
+		    	<div id='m-left'>
+				<ul><li>注册</li></ul>
+				<form method="post" action="index.php?route=account/register/validate">
+					<dl>
+						<dt>手机号：</dt><dd><input type="text" id = 'tel' name = 'telephone' class='text' placeholder='请输入手机号'></dd>
+					</dl>
+					<div class='cap-div'>
+						<dl>
+							<dt>验证码：</dt><dd><input type="text" name = 'cap' class='text cap100' placeholder='请输入验证码'></dd>
+						</dl>
+						<span>
+							{{ captcha }}
+						</span>
+					</div>
+                                        <div class='pwd-div'>
+                                            <dl >
+                                                <dt>邮箱：</dt><dd><input type="email" id = 'mail' name = 'email' class='text' placeholder='请输入电子邮箱'></dd>
+                                            </dl>
+                                        </div>
+					<div class='tcap-div'>
+						<dl>
+							<dt>手机验证码：</dt> 
+							<dd><input type="hidden" name = 'tcap'  class='text' placeholder='请输入手机验证码'>
+                                                            <input type="hidden" name = 'tcap' class='text' value='获取手机验证码' onclick='checkphone()'></dd>
+						</dl>
+					</div>
+					
+					<div class='pwd-div'>
+						<dl>
+							<dt>密码：</dt><dd><input type="password" onblur='checkPwd();' name = 'password' class='text pwd' placeholder='请输入密码'></dd>
+						</dl> 
+					</div>
+					<div class='cpwd-div'>
+						<dl>
+							<dt>确认密码：</dt><dd><input type="password" name = 'qpwd' class='text cpwd' placeholder='请输入确认密码'></dd>
+						</dl> 
+					</div>
+					<div class = 'xieyi'>
+						<input type="checkbox" name="xieyi" id='xieyi'><a href="/">《注册协议及隐私政策》</a>
+					</div>
+					<div class='bt-div'>
+						<input type="submit" class='submit' id ='submit' value='注&nbsp;&nbsp;&nbsp;册' disabled>
+					</div>
+				</form>
+			</div>
+			<div id='m-right' >
+			    <h6>已有账号，去<a href="index.php?route=/account/login">登录</a></h6>
+			</div>
+			<div id = 'errorinfo'></div>
+		    </div>
+		</div>		 
+	</div>
+	
+	
+{{ footer }}
+
+{#<script>
+
+    function $(elementId){
+        return document.getElementById(elementId);
+    }
+    function divId(elementId){
+        return document.getElementById(elementId);
+    }
+
+/*用户名验证*/    
+{#function checkUser(){
+  var user=$("user");
+  var userId=divId("errorinfo");
+   userId.innerHTML="";    
+  var reg=/^[a-zA-Z][a-zA-Z0-9]{3,15}$/;    
+    if(reg.test(user)==false){
+       userId.innerHTML="用户名不正确";
+    return false;
+      }
+      return true;
+    }#}
+/*密码验证*/    
+function checkPwd(){
+  var pwd=$("password");
+  var pwdId=divId("errorinfo");
+   pwdId.innerHTML="";    
+  var reg=/^[a-zA-Z0-9]{8,20}$/;    
+    if(reg.test(pwd)==false){
+       pwdId.innerText="密码不能含有非法字符，长度在8-20之间";
+    return false;
+      }
+      return true;
+    }
+    
+function checkRepwd(){
+  var repwd=$("qpwd");
+  var pwd=$("password");
+  var repwdId=divId("errorinfo");
+   repwdId.innerHTML="";
+    if(pwd!=repwd){
+       repwdId.innerHTML="两次输入的密码不一致";
+    return false;
+      }
+      return true;
+    }
+
+/*验证邮箱*/
+function checkEmail(){
+  var email=$("email");
+  var email_prompt=divId("errorinfo");
+  email_prompt.innerHTML="";
+  var reg=/^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/;    
+    if(reg.test(email)==false){
+      email_prompt.innerHTML="Email格式不正确，例如web@sohu.com";
+    return false;
+      }
+      return true;
+}
+/*验证手机号码*/
+function checkMobile(){
+    var mobile=$("tel");
+    var mobileId=divId("errorinfo");
+    var regMobile=/^1\d{10}$/;
+    if(regMobile.test(mobile)==false){
+        mobileId.innerHTML="手机号码不正确，请重新输入";
+        return false;
+        }
+        mobileId.innerHTML="";
+        return true;
+    }    
+    
+</script>#}
+
+<script>
+	
+	function checkphone (){
+		var phone = $("#tel").val();
+		var reg = /^1[3|4|5|7|8][0-9]{9}$/;  
+                var flag = reg.test(phone);  
+		if(flag){
+			
+		}else{
+		    	
+		}
+	}
+	$('#xieyi').click(function (){
+		var bool =$("#xieyi").is(':checked');
+		if(bool){
+		    $('#submit').attr('disabled',false);
+		    $('#submit').css('background-color','#ff3300');
+		    $('#submit').css('border-radius','3px');
+		    $('#submit').css('border','1px solid #adb2b5' );	
+		}else{
+		    $('#submit').attr('disabled',true);
+		    $('#submit').css('background-color','#f4f4f4');
+		    $('#submit').css('border','1px solid #adb2b5' );
+		}
+	})
+	$('#submit').click(function (){
+		 
+	})
+
+</script>
+
+
+	

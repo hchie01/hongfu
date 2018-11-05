@@ -1,0 +1,41 @@
+
+#box{
+	width:1200px;
+	height: 500px;
+	margin: 20px auto;
+	position: relative;
+	background: #fff;
+}
+.con{
+    width:1200px;
+    height:500px;
+    overflow:hidden;
+}
+.con ul li{
+	list-style-type:none;
+}
+.prev{
+    width:45px;
+    height:100px;
+    position:absolute;
+    left:0px;
+    top:50%;
+    margin-top:-50px;
+    background:url("img/button.png");
+    cursor:pointer;
+    display:none;
+    opacity:0.5;
+}
+.next{
+    width:45px;
+    height:100px;
+    position:absolute;
+    right:0px;
+    top:50%;
+    margin-top:-50px;
+    background:url("img/button.png");
+    background-position:-55px 0px;
+    cursor:pointer;
+    display:none;
+    opacity:0.5;
+}

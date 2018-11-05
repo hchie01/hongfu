@@ -1,0 +1,450 @@
+{{ header }}
+{{ include(helper.template('_partial/breadcrumb')) }}
+<!-- 中间banner -->
+
+<br>
+<hr class="hr"/>
+
+<div id="j-content" class="w" style="padding-top: 30px;">
+    <div class="row-container">
+        <ul>
+            <li ms-class="@tabsIndex === $index ? 'select-active' : ''" ms-click="@toggleTab($index)" ms-for="($index, tab) in @tabs" avalon-events="click:eclick_0_64toggleTab40$index41" class="select-active" old-change-class="select-active">全部拍卖</li>
+            <li ms-class="@tabsIndex === $index ? 'select-active' : ''" ms-click="@toggleTab($index)" avalon-events="click:eclick_0_64toggleTab40$index41">场热拍</li>
+            <li ms-class="@tabsIndex === $index ? 'select-active' : ''" ms-click="@toggleTab($index)" avalon-events="click:eclick_0_64toggleTab40$index41">场预展</li>
+            <li ms-class="@tabsIndex === $index ? 'select-active' : ''" ms-click="@toggleTab($index)" avalon-events="click:eclick_0_64toggleTab40$index41">场已结束</li>
+        </ul>
+    </div>
+    <h3 class="widget-title"><span>预展中</span></h3>
+    <div class="auction-list-box">
+        <div class="auction-list-wrap" id="EnAuctionList">
+            {% for yy in r.y %}
+            <div class="auction-show" id="js_{{ yy.product_id }}">
+                <div class="auction-show-img">
+                    <a href="{{ yy.href }}" target="_self" title="">
+                        <img src="{{ yy.image }}"/>
+                    </a>
+                </div>
+                <div class="auction-show-title">
+                    <div class="auction-s-t-h3box">
+                        <h3>
+                            <a href="{{ yy.href }}" target="_self" title="{{ yy.name }}" se_prerender_url="complete">{{ yy.name }}</a>
+                        </h3>
+                    </div>
+                </div>
+                <div class="info-bottom">
+                    <div class="info-bottom-row">
+                        <div class="info-right fl">
+                            <div class="status-container">
+                                <span id="status_{{ yy.product_id }}" class="status status-green" ms-if="product.activeStatus === 1">{{ yy.stock_status_id }}</span>
+                                <span  class="green f-s-16" ms-if="product.activeStatus === 1">
+                                    距开始:
+                                        <span id="a_{{ yy.product_id }}">天</span>
+                                        <span id="b_{{ yy.product_id }}">时</span>
+                                        <span id="c_{{ yy.product_id }}">分</span>
+                                        <span id="d_{{ yy.product_id }}">秒</span>
+                                </span>
+                                <script>
+                                    function end_{{ yy.product_id }}(){
+                                        var divblock = document.getElementById('js_{{ yy.product_id }}');
+                                        var aa = document.getElementById('a_{{ yy.product_id }}');
+                                        var bb = document.getElementById('b_{{ yy.product_id }}');
+                                        var cc = document.getElementById('c_{{ yy.product_id }}');
+                                        var dd = document.getElementById('d_{{ yy.product_id }}');
+                                        var n = new Date();
+                                        var e = new Date('{{ yy.date_available }}');
+                                        // 转换时间戳
+                                        var nn = n.getTime()/1000;
+                                        var ee = e.getTime()/1000;
+                                        var ct = ee - nn;
+                                        if(ct<=0){
+                                            aj({{ yy.product_id }});
+                                            window.location.reload(true);
+                                            return;
+                                        }
+                                        var intDiff = parseInt(ct);//倒计时总秒数量        //
+                                        function timer(intDiff){
+                                            var day=0,
+                                                hour=0,
+                                                minute=0,
+                                                second=0;//时间默认值
+                                            window.setInterval(function(){
+                                                if(intDiff > 0){
+                                                    day = Math.floor(intDiff / (60 * 60 * 24));
+                                                    hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+                                                    minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+                                                    second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+                                                }
+                                                if (minute <= 9) minute = '0' + minute;
+                                                if (second <= 9) second = '0' + second;
+                                                if(intDiff <= 0){
+                                                    clearInterval(intDiff <= 0);
+                                                    return;
+                                                }
+                                                aa.innerText = day+ '天';
+                                                bb.innerText = hour+'时';
+                                                cc.innerText = minute+'分';
+                                                dd.innerText = second+'秒';
+                                                intDiff--;
+                                            }, 1000);
+                                        }
+                                        timer(ct);
+                                    }
+                                    end_{{ yy.product_id }}();
+
+                                </script>
+
+                            </div>
+                            <div class="eyethor-container f-s-16">
+										<span class="eye-left" ms-if="product.visitCount > 0">
+											<b>{{ yy.num_info }}</b> 人围观
+										</span>
+                                <!-- ms-if -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <script>
+
+        </script>
+    </div>
+<h3 class="widget-title"><span>热拍中</span></h3>
+    <div class="auction-list-box">
+        <div class="auction-list-wrap" id="EnAuctionList">
+            {% for pp in r.p %}
+
+            <div class="auction-show">
+                <div class="auction-show-img">
+                    <a href="{{ pp.href }}" target="_self" title="">
+                        <img src="{{ pp.image }}" />
+                    </a>
+                </div>
+                <div class="auction-show-title">
+                    <div class="auction-s-t-h3box">
+                        <h3>
+                            <a href="{{ pp.href }}" target="_self" title="" se_prerender_url="complete">{{ pp.name }}</a>
+                        </h3>
+                    </div>
+                </div>
+                <div class="info-bottom">
+                    <div class="info-bottom-row">
+                        <div class="info-right fl">
+                            <div class="status-container"><input type="hidden" id="time_{{ pp.product_id }}" value="{{ date_available }}">
+                                <span class="status status-red" ms-if="product.activeStatus === 2">{{ pp.stock_status_id }}</span>
+                                <span id="js_{{ pp.product_id }}" class="red f-s-16" ms-if="product.activeStatus !== 3 && product.activeStatus !== 1" ms-html="product.countdown">
+											距结束:{{ date_available }}
+                                    <span id="a_{{ pp.product_id }}">天</span>
+                                    <span id="b_{{ pp.product_id }}">时</span>
+                                    <span id="c_{{ pp.product_id }}">分</span>
+                                    <span id="d_{{ pp.product_id }}">秒</span>
+                                </span>
+                                <script>
+                                    function end_{{ pp.product_id }}(){
+                                        var aa = document.getElementById('a_{{ pp.product_id }}');
+                                        var bb = document.getElementById('b_{{ pp.product_id }}');
+                                        var cc = document.getElementById('c_{{ pp.product_id }}');
+                                        var dd = document.getElementById('d_{{ pp.product_id }}');
+                                        var n = new Date();
+                                        var e = new Date('{{ pp.end_available }}');
+                                        // 转换时间戳
+                                        var nn = n.getTime()/1000;
+                                        var ee = e.getTime()/1000;
+                                        var ct = ee - nn;
+                                        if(ct<=0){
+                                            aj({{ pp.product_id }});
+                                            return;
+                                        }
+                                        var intDiff = parseInt(ct);//倒计时总秒数量        //
+                                        function timer(intDiff){
+                                            var day=0,
+                                                hour=0,
+                                                minute=0,
+                                                second=0;//时间默认值
+                                            window.setInterval(function(){
+                                                if(intDiff > 0){
+                                                    day = Math.floor(intDiff / (60 * 60 * 24));
+                                                    hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+                                                    minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+                                                    second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+                                                }
+                                                if (minute <= 9) minute = '0' + minute;
+                                                if (second <= 9) second = '0' + second;
+                                                if(intDiff <= 0){
+                                                    clearInterval(intDiff <= 0);
+                                                    return;
+                                                }
+                                                aa.innerText = day+ '天';
+                                                bb.innerText = hour+'时';
+                                                cc.innerText = minute+'分';
+                                                dd.innerText = second+'秒';
+                                                intDiff--;
+                                            }, 1000);
+                                        }
+                                        timer(ct);
+                                    }
+                                    end_{{ pp.product_id }}()
+                                </script>
+                            </div>
+                            <div class="eyethor-container f-s-16">
+										<span class="eye-left" ms-if="product.visitCount > 0">
+											<b>{{ pp.num_info }}</b> 人围观
+										</span>
+                                <span class="thor-right" ms-if="product.bidCount > 0">
+											<b>{{ pp.outnum }}</b>次出价
+										</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+<div class="fenye">
+    <div class="fenye-1">
+        <ul class="pagination" id="page1"></ul>
+        <div class="pageJump">
+            <span>跳转到</span>
+            <input type="text"/>
+            <span>页</span>
+            <button type="button" class="button">确定</button>
+        </div>
+    </div>
+    <script>
+        Page({
+            num:9,					//页码数
+            startnum:3,				//指定页码
+            elem:$('#page1'),		//指定的元素
+            callback:function(n){	//回调函数
+                console.log(n);
+            }
+        });
+    </script>
+</div>
+{{ footer }}
+<script>
+    function aj(id)
+    {
+        $.ajax({
+            url: 'index.php?route=account/paimai/move_product',
+            // dataType:'json',
+            data: {pid:id,time:1},
+            type: 'POST',
+            // success: function(data){
+            //     var now = new Date();
+            //     var nno = now.getTime()/1000;
+            //
+            //     if(data==(parseInt(nno))){
+            //     }
+            //     // window.location.reload(true);
+            //
+            //     console.log(data);
+            // },
+            error: function(){
+                alert('请求发送失败了!!!');
+            },
+            async: true
+        });
+    }
+</script>
+<style type="text/css">
+    *{margin:0;padding:0;list-style-type:none;}
+    a,img{border:0;text-decoration:none;}
+    body{font:12px/180% Arial, Helvetica, sans-serif ,"新宋体";}
+    p{margin:0px;padding:0px;line-height:20px;}
+    i{margin:0px;padding:0px;font-style:normal;}
+    ul{margin:0px;padding:0px;list-style:none;}
+    ul li{margin:0px;padding:0px;list-style:none;}
+    a{color:#333333;text-decoration:none;}
+    a:hover{color:#ff5a00;text-decoration:none;}
+    .clear{clear:both;font-size:0px;line-height:0;height:0;}
+
+    @font-face {
+        font-family: 'icomoon';
+        src:url('catalog/view/theme/default/paim/fonts/fonts/icomoon.eot?qradjf');
+        src:url('catalog/view/theme/default/paim/fonts/icomoon.eot?qradjf#iefix') format('embedded-opentype'),
+        url('catalog/view/theme/default/paim/fonts/icomoon.ttf?qradjf') format('truetype'),
+        url('catalog/view/theme/default/paim/fonts/icomoon.woff?qradjf') format('woff'),
+        url('catalog/view/theme/default/paim/fonts/icomoon.svg?qradjf#icomoon') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    .demo-icon{
+        font-family:"icomoon";
+        font-style:normal;
+        font-weight:normal;
+        speak:none;
+        display:inline-block;
+        text-decoration:inherit;
+        text-align:center;
+        font-variant:normal;
+        text-transform:none;
+        font-size:24px;
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+        line-height:24px;
+        color:#999;
+    }
+
+    /*new right*/
+    .cndns-right{position:fixed;right:1px;top:50%;margin-top:-100px;z-index:100}
+    .cndns-right-meau{position:relative;}
+    .cndns-right-btn{width:48px;height:48px;border:1px solid #ddd;text-align:center;display:block;margin-bottom:6px;position:relative;background-color:#fff}
+    .cndns-right-btn span{color:#848484;font-size:26px;line-height:48px;}
+    .cndns-right-btn sup{display:block;min-width:24px;height:24px;text-align:center;line-height:24px;color:#fff;border-radius: 50%;background-color:#ff6800;position:absolute;left:-12px;top:-12px;}
+    .cndns-right-btn p{color:#ff6800;font-size:14px;line-height:18px;padding-top:5px;display:none;}
+    .cndns-right-meau:hover .cndns-right-btn span{display:none}
+    .cndns-right-meau:hover .cndns-right-btn p{display:block;}
+    .meau-car .cndns-right-btn {border-color:#ff6800;margin-bottom:20px;}
+    .meau-car.cndns-right-meau:hover .cndns-right-btn{background-color:#ff6800}
+    .meau-car.cndns-right-meau:hover .cndns-right-btn span{color:#fff;display:block;}
+    .meau-car .cndns-right-btn span{color:#ff6800;}
+    .meau-sev .cndns-right-btn{border-color:#ff6800;background:url() no-repeat #ff6800 center;}
+    .meau-sev .cndns-right-btn p{color:#fff}
+    .meau-sev .cndns-right-btn span{color:#fff}
+    .meau-top .cndns-right-btn span{font-size:12px;line-height:12px;padding-top:10px;display:block}
+    .meau-top .cndns-right-btn i{display:block;color:#999}
+    .meau-top.cndns-right-meau:hover .cndns-right-btn{background-color:#ff6800}
+    .meau-top.cndns-right-meau:hover .cndns-right-btn span{display:block;color:#fff}
+    .meau-top.cndns-right-meau:hover .cndns-right-btn i{color:#fff;}
+    .cndns-right-box{position:absolute;top:-15px;right:48px;padding-right:25px;display:none;}
+    .cndns-right-box .box-border{border:1px solid #ccc;border-top:4px solid #ff6800;padding:20px;background-color:#fff;-webkit-box-shadow: 0 3px 8px rgba(0,0,0,.15);-moz-box-shadow: 0 3px 8px rgba(0,0,0,.15);box-shadow: 0 3px 8px rgba(0,0,0,.15);position:relative}
+    .cndns-right-box .box-border .arrow-right{display:block;width:13px;height:16px;background:url() no-repeat;position:absolute;right:-13px;top:26px;}
+    .cndns-right-box .box-border .sev-t span{font-size:42px;float:left;display:block;line-height:56px;margin-right:20px;color:#d3d3d3}
+    .cndns-right-box .box-border .sev-t p{float:left;color:#ff6800;font-size:24px;line-height:28px;}
+    .cndns-right-box .box-border .sev-t p i{display:block;font-size:14px;color:#aaa;}
+    .cndns-right-box .box-border .sev-b{padding-top:15px;margin-top:15px;border-top:1px solid #e4e4e4}
+    .cndns-right-box .box-border .sev-b h4{color:#666;font-size:14px;font-weight:normal;padding-bottom:15px;}
+    .cndns-right-box .box-border .sev-b li{float:left;width:33.33333%}
+    .cndns-right-box .box-border .sev-b li a{display:inline-block;color:#999;font-size:13px;padding-left:43px;background:url() no-repeat left 3px;line-height:36px;}
+    .cndns-right-box .box-border .sev-b li a:hover{color:#ff6800}
+    .meau-sev .cndns-right-box .box-border{width:430px;}
+    .meau-contact .cndns-right-box .box-border{width:230px;}
+    .cndns-right-meau:hover .cndns-right-box{display:block}
+    .meau-code .cndns-right-box{top:inherit;bottom:-35px;}
+    .meau-code .cndns-right-box .box-border{width:156px;text-align:center;border-top:1px solid #ccc;}
+    .meau-code .cndns-right-box .box-border i{display:block;color:#f66e06;font-size:16px;line-height:16px;}
+    .meau-code .cndns-right-box .box-border .arrow-right{top:inherit;bottom:50px;}
+    .meau-sev .cndns-right-btn .demo-icon{display:none;}
+    .meau-sev:hover .cndns-right-btn{background:#ff6800}
+    .meau-zs .cndns-right-btn{background-color:#ff6800;color:#fff;margin-top:80px;border-color:#ff6800}
+    .meau-zs .cndns-right-btn span{color:#fff}
+    .meau-zs .cndns-right-btn p{color:#fff}
+</style>
+
+<!--右侧-->
+<div class="cndns-right">
+    <div class="cndns-right-meau meau-car">
+        <a href="#" class="cndns-right-btn">
+            <span class="demo-icon">&#xe900;</span>
+            <sup>0</sup>
+        </a>
+    </div>
+    <div class="cndns-right-meau meau-sev">
+        <a href="javascript:" class="cndns-right-btn">
+            <span class="demo-icon">&#xe901;</span>
+            <p>
+                在线<br />
+                客服
+            </p>
+        </a>
+        <div class="cndns-right-box">
+            <div class="box-border">
+                <div class="sev-t">
+                    <span class="demo-icon">&#xe901;</span>
+                    <p>在线客服<i>服务时间：9:00-24:00</i></p>
+                    <div class="clear"></div>
+                </div>
+                <div class="sev-b">
+                    <h4>选择下列产品马上在线沟通：</h4>
+                    <ul id="zixunUl">
+                        <li><a href="javascript:void(0);">购买艺术</a></li>
+                        <li><a href="javascript:void(0);">作品征集</a></li>
+                        <li><a href="javascript:void(0);">合作伙伴</a></li>
+                        <!--<li><a href="javascript:void(0);">代理咨询</a></li>
+                        <li><a href="javascript:void(0);">网站推广</a></li>
+                        <li><a href="javascript:void(0);">橙云主机</a></li>
+
+                        <li><a href="javascript:void(0);">域名交易</a></li>
+
+                        <li><a href="javascript:void(0);">租用托管(BGP)</a></li>
+
+                        <li><a href="javascript:void(0);">其他产品</a></li>-->
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <span class="arrow-right"></span>
+            </div>
+        </div>
+    </div>
+    <div class="cndns-right-meau meau-contact">
+        <a href="javascript:" class="cndns-right-btn">
+            <span class="demo-icon">&#xe902;</span>
+            <p>
+                客服<br />
+                热线
+            </p>
+        </a>
+        <div class="cndns-right-box">
+            <div class="box-border">
+                <div class="sev-t">
+                    <span class="demo-icon">&#xe902;</span>
+                    <p>400-123-4567<br /><i>7*24小时客服服务热线</i></p>
+                    <div class="clear"></div>
+                </div>
+                <span class="arrow-right"></span>
+            </div>
+        </div>
+    </div>
+    <div class="cndns-right-meau meau-code">
+        <a href="javascript:" class="cndns-right-btn">
+            <span class="demo-icon">&#xe903;</span>
+            <p>
+                关注<br />
+                微信
+            </p>
+        </a>
+        <div class="cndns-right-box">
+            <div class="box-border">
+                <div class="sev-t">
+                    <img src="" />
+                    <i>关注官方微信</i>
+                </div>
+                <span class="arrow-right"></span>
+            </div>
+        </div>
+    </div>
+    <div class="cndns-right-meau meau-top" id="top-back">
+        <a href="javascript:" class="cndns-right-btn" onclick="topBack()">
+            <span class="demo-icon">&#xe904;</span>
+            <i>顶部</i>
+        </a>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="./catalog/view/javascript/jquery/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+    //置顶图标显示
+    $('#top-back').hide()
+    $(window).scroll(function(){
+        if($(this).scrollTop() > 350){
+            $("#top-back").fadeIn();
+        }
+        else{
+            $("#top-back").fadeOut();
+        }
+    })
+    //置顶事件
+    function topBack(){
+        $('body,html').animate({scrollTop:0},300);
+    }
+</script>
+<!-- 返回顶部结尾 -->
+</body>
